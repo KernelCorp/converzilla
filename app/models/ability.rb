@@ -2,11 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.is_a? User::Client
-      can :manage, Inquire
+    if user.is_a? User::Operator
+      can [:read, :update], Inquire
     end
 
-    if user.is_a? User::Operator
+    if user.is_a? User::Client
       can :manage, Inquire
     end
     # Define abilities for the passed in user here. For example:

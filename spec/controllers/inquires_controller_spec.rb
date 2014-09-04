@@ -23,12 +23,9 @@ RSpec.describe InquiresController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Inquire. As you add validations to Inquire, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {status: 'fake status'}
   }
 
   before(:each) {request.accept = 'application/json'}
@@ -53,115 +50,126 @@ RSpec.describe InquiresController, :type => :controller do
   end
 
   describe "GET show" do
-    it "assigns the requested inquire as @inquire" do
-      inquire = Inquire.create! valid_attributes
-      get :show, {:id => inquire.to_param}
-      expect(assigns(:inquire)).to eq(inquire)
-    end
-  end
+    context 'as client' do
+      include_context 'signed in as client'
 
-  describe "GET new" do
-    it "assigns a new inquire as @inquire" do
-      get :new, {}
-      expect(assigns(:inquire)).to be_a_new(Inquire)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested inquire as @inquire" do
-      inquire = Inquire.create! valid_attributes
-      get :edit, {:id => inquire.to_param}
-      expect(assigns(:inquire)).to eq(inquire)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Inquire" do
-        expect {
-          post :create, {:inquire => valid_attributes}
-        }.to change(Inquire, :count).by(1)
-      end
-
-      it "assigns a newly created inquire as @inquire" do
-        post :create, {:inquire => valid_attributes}
-        expect(assigns(:inquire)).to be_a(Inquire)
-        expect(assigns(:inquire)).to be_persisted
-      end
-
-      it "redirects to the created inquire" do
-        post :create, {:inquire => valid_attributes}
-        expect(response).to redirect_to(Inquire.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved inquire as @inquire" do
-        post :create, {:inquire => invalid_attributes}
-        expect(assigns(:inquire)).to be_a_new(Inquire)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:inquire => invalid_attributes}
-        expect(response).to render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested inquire" do
-        inquire = Inquire.create! valid_attributes
-        put :update, {:id => inquire.to_param, :inquire => new_attributes}
-        inquire.reload
-        skip("Add assertions for updated state")
-      end
+      let(:inquire) { FactoryGirl.create :inquire, client: client}
 
       it "assigns the requested inquire as @inquire" do
-        inquire = Inquire.create! valid_attributes
-        put :update, {:id => inquire.to_param, :inquire => valid_attributes}
+        get :show, {:id => inquire.to_param}
         expect(assigns(:inquire)).to eq(inquire)
       end
+    end
+    context 'as operator' do
+      include_context 'signed in as operator'
 
-      it "redirects to the inquire" do
-        inquire = Inquire.create! valid_attributes
-        put :update, {:id => inquire.to_param, :inquire => valid_attributes}
-        expect(response).to redirect_to(inquire)
+      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+
+      it "assigns the requested inquire as @inquire" do
+        get :show, {:id => inquire.to_param}
+        expect(assigns(:inquire)).to eq(inquire)
+      end
+    end
+  end
+
+
+  # describe "POST create" do
+  #   describe "with valid params" do
+  #     it "creates a new Inquire" do
+  #       expect {
+  #         post :create, {:inquire => valid_attributes}
+  #       }.to change(Inquire, :count).by(1)
+  #     end
+  #
+  #     it "assigns a newly created inquire as @inquire" do
+  #       post :create, {:inquire => valid_attributes}
+  #       expect(assigns(:inquire)).to be_a(Inquire)
+  #       expect(assigns(:inquire)).to be_persisted
+  #     end
+  #
+  #     it "redirects to the created inquire" do
+  #       post :create, {:inquire => valid_attributes}
+  #       expect(response).to redirect_to(Inquire.last)
+  #     end
+  #   end
+  #
+  #   describe "with invalid params" do
+  #     it "assigns a newly created but unsaved inquire as @inquire" do
+  #       post :create, {:inquire => invalid_attributes}
+  #       expect(assigns(:inquire)).to be_a_new(Inquire)
+  #     end
+  #
+  #     it "re-renders the 'new' template" do
+  #       post :create, {:inquire => invalid_attributes}
+  #       expect(response).to render_template("new")
+  #     end
+  #   end
+  # end
+
+  describe "PUT update" do
+    RSpec.shared_examples 'updater' do
+      context "with valid params" do
+        let(:new_attributes) { { status: 'close' } }
+
+        it "updates the requested inquire" do
+          expect{put :update, {id: inquire.to_param, inquire: new_attributes}}.to change{
+            inquire.reload.status
+          }.to('close')
+        end
+      end
+
+      context "with invalid params" do
+        it "not updates the requested inquire" do
+          expect{put :update, {id: inquire.to_param, inquire: invalid_attributes}}.not_to change{
+            inquire.reload.status
+          }
+        end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the inquire as @inquire" do
-        inquire = Inquire.create! valid_attributes
-        put :update, {:id => inquire.to_param, :inquire => invalid_attributes}
-        expect(assigns(:inquire)).to eq(inquire)
-      end
+    context 'as client' do
+      include_context 'signed in as client'
 
-      it "re-renders the 'edit' template" do
-        inquire = Inquire.create! valid_attributes
-        put :update, {:id => inquire.to_param, :inquire => invalid_attributes}
-        expect(response).to render_template("edit")
-      end
+      let(:inquire) { FactoryGirl.create :inquire, client: client}
+
+      it_should_behave_like 'updater'
+    end
+
+    context 'as operator' do
+      include_context 'signed in as operator'
+
+      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+
+      it_should_behave_like 'updater'
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested inquire" do
-      inquire = Inquire.create! valid_attributes
-      expect {
-        delete :destroy, {:id => inquire.to_param}
-      }.to change(Inquire, :count).by(-1)
+    context 'as client' do
+      include_context 'signed in as client'
+
+      let(:inquire) { FactoryGirl.create :inquire, client: client}
+
+      it 'destroys the requested inquire' do
+        expect {
+          delete :destroy, {id: inquire.to_param}
+        }.to change{client.reload.inquires.count}.by(-1)
+      end
     end
 
-    it "redirects to the inquires list" do
-      inquire = Inquire.create! valid_attributes
-      delete :destroy, {:id => inquire.to_param}
-      expect(response).to redirect_to(inquires_url)
+    context 'as operator' do
+      include_context 'signed in as operator'
+
+      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+
+      it 'access denied' do
+        expect {
+          delete :destroy, {id: inquire.to_param}
+        }.to raise_error(CanCan::AccessDenied)
+      end
     end
+
+
   end
 
 end

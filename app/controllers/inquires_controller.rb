@@ -1,7 +1,6 @@
 class InquiresController < ApplicationController
-  before_filter :authenticate_user!
-  load_and_authorize_resource through: :current_host
-
+  before_filter :authenticate_user!, except: :create
+  load_and_authorize_resource through: :current_host, except: :create
   respond_to :json
 
   def index
@@ -10,16 +9,6 @@ class InquiresController < ApplicationController
 
 
   def show
-  end
-
-
-  def new
-    respond_with @inquire
-  end
-
-
-  def edit
-    respond_with @inquire
   end
 
   def create
@@ -54,6 +43,6 @@ class InquiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inquire_params
-      params[:inquire]
+      params.require(:inquire).permit :status
     end
 end
