@@ -1,4 +1,5 @@
 Converzilla::Application.routes.draw do
+  devise_for :bases, class_name: "User::Base"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
