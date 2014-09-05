@@ -94,7 +94,7 @@ RSpec.describe InquiresController, :type => :controller do
     end
 
     context "with invalid params" do
-      let(:valid_attributes) { {email: 'inquire', phone: '99223453221', name: 'vasya'} }
+      let(:invalid_attributes) { {email: 'inquire', phone: '99223453221', name: 'vasya'} }
       it 'responds with status unprocessable_entity' do
         post :create, {client_id: client.to_param, inquire: invalid_attributes}
         expect(response).to have_http_status(:unprocessable_entity)
