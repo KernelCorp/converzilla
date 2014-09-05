@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClientController, :type => :controller do
+RSpec.describe ClientsController, :type => :controller do
 
   describe "GET show" do
     it "returns http success" do

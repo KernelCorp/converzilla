@@ -53,7 +53,7 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as client' do
       include_context 'signed in as client'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: client}
+      let(:inquire) { FactoryGirl.create :inquire, clients: client}
 
       it "assigns the requested inquire as @inquire" do
         get :show, {:id => inquire.to_param}
@@ -63,7 +63,7 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as operator' do
       include_context 'signed in as operator'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+      let(:inquire) { FactoryGirl.create :inquire, clients: operator.client}
 
       it "assigns the requested inquire as @inquire" do
         get :show, {:id => inquire.to_param}
@@ -75,7 +75,7 @@ RSpec.describe InquiresController, :type => :controller do
 
   describe 'POST create' do
 
-    let(:client) { FactoryGirl.create :client }
+    let(:clients) { FactoryGirl.create :clients }
 
     let(:valid_attributes) { {email: 'inquire@example.com', phone: '99223453221', name: 'vasya'} }
 
@@ -137,7 +137,7 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as client' do
       include_context 'signed in as client'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: client}
+      let(:inquire) { FactoryGirl.create :inquire, clients: client}
 
       it_should_behave_like 'updater'
     end
@@ -145,7 +145,7 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as operator' do
       include_context 'signed in as operator'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+      let(:inquire) { FactoryGirl.create :inquire, clients: operator.client}
 
       it_should_behave_like 'updater'
     end
@@ -165,7 +165,7 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as operator' do
       include_context 'signed in as operator'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: operator.client}
+      let(:inquire) { FactoryGirl.create :inquire, clients: operator.client}
 
       it 'access denied' do
         expect {

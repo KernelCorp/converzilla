@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :operator, :class => 'User::Operator' do
     email "aaa#{SecureRandom.hex(5)}@bbb.ccc"
     password 'password123'
-    association :client, factory: :client
+    association :clients, factory: :clients
   end
 end
