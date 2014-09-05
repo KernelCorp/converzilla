@@ -6,6 +6,12 @@ gem 'rails', '~>4.0.1'
 # Mongoid
 gem 'mongoid', '~>4.0.0'
 
+#Frontend frameworks
+gem 'semantic-ui-sass', '~> 0.16.1.0'
+gem 'ember-rails'
+gem 'ember-source', '~>1.5.0'
+gem 'emblem-rails'
+
 # Handlers
 gem 'slim-rails'
 
