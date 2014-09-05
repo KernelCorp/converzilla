@@ -4,4 +4,5 @@ Converzilla::Application.routes.draw do
 
   resources :inquires
   resources :operators, as: 'user_operator'
+  resource :client
 end

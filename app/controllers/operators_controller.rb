@@ -1,5 +1,5 @@
 class OperatorsController < ApplicationController
-  before_filter :authenticate_user!, except: :create
+  before_action :authenticate_user!, except: :create
   load_and_authorize_resource through: :current_user
   respond_to :json
 
