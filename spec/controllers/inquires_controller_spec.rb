@@ -73,38 +73,45 @@ RSpec.describe InquiresController, :type => :controller do
   end
 
 
-  # describe "POST create" do
-  #   describe "with valid params" do
-  #     it "creates a new Inquire" do
-  #       expect {
-  #         post :create, {:inquire => valid_attributes}
-  #       }.to change(Inquire, :count).by(1)
-  #     end
-  #
-  #     it "assigns a newly created inquire as @inquire" do
-  #       post :create, {:inquire => valid_attributes}
-  #       expect(assigns(:inquire)).to be_a(Inquire)
-  #       expect(assigns(:inquire)).to be_persisted
-  #     end
-  #
-  #     it "redirects to the created inquire" do
-  #       post :create, {:inquire => valid_attributes}
-  #       expect(response).to redirect_to(Inquire.last)
-  #     end
-  #   end
-  #
-  #   describe "with invalid params" do
-  #     it "assigns a newly created but unsaved inquire as @inquire" do
-  #       post :create, {:inquire => invalid_attributes}
-  #       expect(assigns(:inquire)).to be_a_new(Inquire)
-  #     end
-  #
-  #     it "re-renders the 'new' template" do
-  #       post :create, {:inquire => invalid_attributes}
-  #       expect(response).to render_template("new")
-  #     end
-  #   end
-  # end
+  describe 'POST create' do
+
+    let(:client) { FactoryGirl.create :client }
+
+    let(:valid_attributes) { {email: 'inquire@example.com', phone: '99223453221', name: 'vasya'} }
+
+    context 'with valid params' do
+
+      it 'creates a new Inquire' do
+        expect {
+          post :create, {client_id: client.to_param, inquire: valid_attributes}
+        }.to change{client.reload.inquires.count}.by(1)
+      end
+
+      it 'assigns a newly created inquire as @inquire' do
+        post :create, {client_id: client.to_param, inquire: valid_attributes}
+        expect(assigns(:inquire)).to be_a(Inquire)
+      end
+    end
+
+    context "with invalid params" do
+      let(:valid_attributes) { {email: 'inquire', phone: '99223453221', name: 'vasya'} }
+      it 'responds with status unprocessable_entity' do
+        post :create, {client_id: client.to_param, inquire: invalid_attributes}
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+    it 'response 404 if clients_id is not correct' do
+      expect{
+        post :create, {client_id: 'fake', inquire: valid_attributes}
+      }.to raise_error(Mongoid::Errors::DocumentNotFound)
+    end
+
+    it 'responds with status unprocessable_entity if clients_id is blank' do
+      post :create, {inquire: invalid_attributes}
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 
   describe "PUT update" do
     RSpec.shared_examples 'updater' do
@@ -148,11 +155,9 @@ RSpec.describe InquiresController, :type => :controller do
     context 'as client' do
       include_context 'signed in as client'
 
-      let(:inquire) { FactoryGirl.create :inquire, client: client}
-
       it 'destroys the requested inquire' do
         expect {
-          delete :destroy, {id: inquire.to_param}
+          delete :destroy, {id: client.inquires.first.to_param}
         }.to change{client.reload.inquires.count}.by(-1)
       end
     end

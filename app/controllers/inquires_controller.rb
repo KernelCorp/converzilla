@@ -12,11 +12,14 @@ class InquiresController < ApplicationController
   end
 
   def create
-    if @inquire.save
+    return head(status: :unprocessable_entity) if params[:client_id].blank?
+    @client = User::Client.find params[:client_id]
+    @inquire = @client.inquires.build outside_inquire_params
+    if @client.save
       flash[:notice] = 'Inquire was successfully created.'
       respond_with @inquire, status: :created, location: @inquire
     else
-      respond_with @inquire.errors, status: :unprocessable_entity
+      respond_with @inquire, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +35,7 @@ class InquiresController < ApplicationController
 
 
   def destroy
-    @inquire.destroy
+    current_host.inquires.delete @inquire
     head :no_content
   end
 
@@ -44,5 +47,9 @@ class InquiresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def inquire_params
       params.require(:inquire).permit :status
+    end
+
+    def outside_inquire_params
+      params.require(:inquire).permit :email, :name, :phone
     end
 end
