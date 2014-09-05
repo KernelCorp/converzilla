@@ -20,6 +20,7 @@ class OperatorsController < ApplicationController
     @operator.password = Devise.friendly_token.first(8)
     if @operator.save
       flash[:notice] = 'Operator was successfully created.'
+      OperatorMailer.deliver_create(@operator)
       respond_with @operator, status: :created, location: @operator
     else
       respond_with @operator, status: :unprocessable_entity
