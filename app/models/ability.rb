@@ -8,6 +8,7 @@ class Ability
 
     if user.is_a? User::Client
       can :manage, Inquire
+      can :manage, Operator
     end
     # Define abilities for the passed in user here. For example:
     #
