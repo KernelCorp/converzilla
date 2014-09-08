@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClientsController, :type => :controller do
+RSpec.describe UsersController, :type => :controller do
 
   let(:client) { FactoryGirl.create :client }
 

@@ -3,5 +3,5 @@ Converzilla::Application.routes.draw do
   devise_for :client
   resources :inquires
   resources :operators
-  resource :client
+  resource :users, only: :show
 end

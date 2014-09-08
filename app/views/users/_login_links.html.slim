@@ -1,0 +1,6 @@
+- if user_signed_in?
+  = link_to destroy_user_session_path, method: :delete, class: 'item' do
+    i.sign.out.icon
+-else
+  = link_to new_user_session_path, class: 'item' do
+    i.sign.in.icon

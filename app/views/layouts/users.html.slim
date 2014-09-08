@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Converzilla
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+
+
+    .container
+      .ui.grid
+        .five.wide.column
+          .ui.vertical.menu
+            - if can? :manage, Operator
+              a.item href='#/operators'
+                | Operators
+                i.users.icon
+
+            a.item href='#/inquires'
+              | Inquires
+              i.briefcase.icon
+        .eleven.wide.column
+          = yield

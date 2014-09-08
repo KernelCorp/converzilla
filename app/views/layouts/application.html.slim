@@ -6,22 +6,6 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
-    .ui.inverted.black.menu
-      .container
-        = link_to '/home', class: 'item' do
-          | Home
-          i.home.icon
-
+    = render 'header'
     .container
-      .ui.grid
-        .five.wide.column
-          .ui.vertical.menu
-            a.item href='#/operators'
-              | Operators
-              i.users.icon
-
-            a.item href='#/inquires'
-              | Inquires
-              i.briefcase.icon
-        .eleven.wide.column
-          = yield
+      = yield
