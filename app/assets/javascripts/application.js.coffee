@@ -6,5 +6,5 @@
 #= require converzilla
 
 # for more details see: http://emberjs.com/guides/application/
-window.Converzilla = Ember.Application.create()
+window.Converzilla = Ember.Application.create(rootElement: '#ember-app')
 

@@ -13,12 +13,15 @@ html
           i.home.icon
 
     .container
-      .ui.vertical.menu
-        a.item href='#operators'
-          | Operators
-          i.users.icon
+      .ui.grid
+        .five.wide.column
+          .ui.vertical.menu
+            a.item href='#operators'
+              | Operators
+              i.users.icon
 
-        a.item href='#inquries'
-          | Inquires
-          i.briefcase.icon
-      = yield
+            a.item href='#inquries'
+              | Inquires
+              i.briefcase.icon
+        .eleven.wide.column
+          = yield

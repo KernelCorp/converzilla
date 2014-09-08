@@ -1,0 +1,21 @@
+h3.ui.header Создать нового Оператора
+.ui.form.segment
+  form
+    .field
+      label
+        | Email
+      .ui.left.labeled.icon.input
+        = view Ember.TextField valueBinding='email' name='email' viewName='email'
+        i.user.icon
+        .ui.corner.label
+          i.icon.asterisk
+    .field
+      label
+        | Пароль
+      .ui.left.labeled.icon.input
+        = view Ember.TextField valueBinding='password' name='password' viewName='password'
+        i.lock.icon
+        .ui.corner.label
+          i.icon.asterisk
+    button.ui.green.submit.button{action 'create'}
+      | Создать

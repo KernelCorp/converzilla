@@ -1,6 +1,18 @@
-h1 Операторы
-.ui.divided.list
+h3.ui.header Операторы
+table.ui.table.segment
+  thead
+    tr
+      th
+        | email
+      th
+        | actions
   = each operator in controller
-    .item
-      .content
+    tr
+      td
         = operator.email
+      td
+        | none
+
+a.ui.green.button href='#/operators/new'
+  i.add.icon
+  | Добавить оператора

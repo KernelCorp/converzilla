@@ -2,8 +2,8 @@
 
 Converzilla.Router.map ()->
   @resource 'operators', ->
-    @resource 'new'
-    @resource 'edit'
-    @resource 'show', {path: ':guid'}
+    @route 'new'
+    @route 'edit'
+    @route 'show', {path: ':guid'}
 
 
