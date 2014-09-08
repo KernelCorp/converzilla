@@ -23,7 +23,10 @@ table.ui.table.segment
       td
         = status
       td
-        = if isOpen
-          i.icon.refresh
-        = if isInProgress
-          i.icon.checkmark
+        = ifIAmOperator
+          = if isOpen
+            i.icon.refresh
+          = if isInProgress
+            i.icon.checkmark
+        = ifIAmClient
+          i.icon.remove
