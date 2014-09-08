@@ -39,12 +39,12 @@ RSpec.describe OperatorsController, :type => :controller do
       it "creates a new Operator" do
         expect {
           post :create, {:operator => valid_attributes}
-        }.to change(User::Operator, :count).by(1)
+        }.to change(Operator, :count).by(1)
       end
 
       it "assigns a newly created operator as @operator" do
         post :create, {:operator => valid_attributes}
-        expect(assigns(:operator)).to be_a(User::Operator)
+        expect(assigns(:operator)).to be_a(Operator)
       end
 
       it 'creates a new operator associated with client' do
@@ -74,7 +74,7 @@ RSpec.describe OperatorsController, :type => :controller do
 
     describe "with invalid params" do
       it 'responds with status unprocessable_entity' do
-        put :update, {:operator => invalid_attributes}
+        put :update, {id: operator.to_param, operator: invalid_attributes}
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -84,7 +84,7 @@ RSpec.describe OperatorsController, :type => :controller do
     it "destroys the requested operator" do
       expect {
         delete :destroy, {:id => operator.to_param}
-      }.to change(User::Operator, :count).by(-1)
+      }.to change(Operator, :count).by(-1)
     end
 
   end

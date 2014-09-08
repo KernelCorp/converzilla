@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe User::Operator, :type => :model do
+RSpec.describe Operator, :type => :model do
   describe '#inquires' do
     let(:inquire) {FactoryGirl.build :inquire}
-    let(:clients)  {FactoryGirl.create :clients}
+    let(:client)  {FactoryGirl.create :client}
     let(:operator_with_inquire) do
-      o = FactoryGirl.create :operator, clients: client
+      o = FactoryGirl.create :operator, client: client
       inquire.operator = o
       client.inquires << inquire
       client.save!

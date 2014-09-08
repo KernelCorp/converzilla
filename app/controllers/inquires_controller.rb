@@ -13,7 +13,7 @@ class InquiresController < ApplicationController
 
   def create
     return head(status: :unprocessable_entity) if params[:client_id].blank?
-    @client = User::Client.find params[:client_id]
+    @client = Client.find params[:client_id]
     @inquire = @client.inquires.build outside_inquire_params
     if @client.save
       flash[:notice] = 'Inquire was successfully created.'
@@ -41,7 +41,7 @@ class InquiresController < ApplicationController
 
   private
     def current_host
-      current_user.is_a?(User::Client) ? current_user : current_user.client
+      current_user.is_a?(Client) ? current_user : current_user.client
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

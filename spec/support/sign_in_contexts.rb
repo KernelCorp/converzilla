@@ -1,5 +1,5 @@
 RSpec.shared_context 'signed in as client' do
-  let(:clients) {FactoryGirl.create :clients}
+  let(:client) {FactoryGirl.create :client}
   before(:each) {sign_in client}
 end
 

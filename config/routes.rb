@@ -1,8 +1,7 @@
 Converzilla::Application.routes.draw do
   devise_for :user, class_name: "User::Base"
-  devise_for :clients, class_name: "User::Client"
-
+  devise_for :client
   resources :inquires
-  resources :operators, as: 'user_operator'
+  resources :operators
   resource :client
 end
