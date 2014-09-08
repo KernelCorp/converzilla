@@ -8,11 +8,22 @@ table.ui.table.segment
         | телефон
       th
         | имя
-  = each inquire in controller
-    tr
+      th
+        | статус
+      th
+        | действия
+  = each
+    tr class={isInProgress:warning isClose:positive}
       td
-        = inquire.email
+        = email
       td
-        = inquire.phone
+        =  phone
       td
-        = inquire.name
+        = name
+      td
+        = status
+      td
+        = if isOpen
+          i.icon.refresh
+        = if isInProgress
+          i.icon.checkmark
