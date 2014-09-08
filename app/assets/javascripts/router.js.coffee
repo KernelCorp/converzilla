@@ -7,3 +7,7 @@ Converzilla.Router.map ()->
     @route 'show', {path: ':guid'}
 
 
+  @resource 'inquires', ->
+    @route 'update'
+    @route 'edit'
+    @route 'show', {path: ':guid'}

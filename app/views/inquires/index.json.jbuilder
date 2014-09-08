@@ -1,4 +1,5 @@
-json.array!(@inquires) do |inquire|
-  json.extract! inquire, :id
-  json.url inquire_url(inquire, format: :json)
+json.set! :inquires do
+  json.array!(@inquires) do |inquire|
+    json.partial! 'inquires/item', inquire: inquire
+  end
 end

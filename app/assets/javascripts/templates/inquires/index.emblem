@@ -1,0 +1,18 @@
+h3.ui.header Заявки
+table.ui.table.segment
+  thead
+    tr
+      th
+        | email
+      th
+        | телефон
+      th
+        | имя
+  = each inquire in controller
+    tr
+      td
+        = inquire.email
+      td
+        = inquire.phone
+      td
+        = inquire.name
