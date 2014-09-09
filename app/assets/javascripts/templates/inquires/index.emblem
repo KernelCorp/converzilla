@@ -25,8 +25,8 @@ table.ui.table.segment
       td
         = ifIAmOperator
           = if isOpen
-            i.icon.refresh
+            i.icon.refresh.as_link{action 'changeStatus' this 'in_progress'}
           = if isInProgress
-            i.icon.checkmark
+            i.icon.checkmark.as_link{action 'changeStatus' this 'close'}
         = ifIAmClient
           i.icon.remove
