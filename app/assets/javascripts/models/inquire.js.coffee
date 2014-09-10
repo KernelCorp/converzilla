@@ -6,6 +6,14 @@ Converzilla.Inquire = DS.Model.extend
   name:  DS.attr 'string'
   status: DS.attr 'string'
 
+  statusClass: ( ->
+    switch @get('status')
+      when 'new' then 'new'
+      when 'close' then 'positive'
+      when 'in_progress' then 'warning'
+      else ''
+  ).property('status')
+
   isOpen: ( ->
     @get('status') == 'new'
   ).property()
