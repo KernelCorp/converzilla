@@ -31,6 +31,7 @@ class InquiresController < ApplicationController
   def update
     if @inquire.update(inquire_params)
       flash[:notice] = 'Inquire was successfully updated.'
+      WebsocketRails[@inquire.client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :updated, location: @inquire
     else
       respond_with @inquire.errors, status: :unprocessable_entity
