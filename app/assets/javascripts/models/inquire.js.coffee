@@ -16,14 +16,14 @@ Converzilla.Inquire = DS.Model.extend
 
   isOpen: ( ->
     @get('status') == 'new'
-  ).property()
+  ).property('status')
 
   isClose: ( ->
     @get('status') == 'close'
-  ).property()
+  ).property('status')
 
   isInProgress: ( ->
       @get('status') == 'in_progress'
-  ).property()
+  ).property('status')
 
 
