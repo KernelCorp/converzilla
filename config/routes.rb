@@ -1,4 +1,5 @@
 Converzilla::Application.routes.draw do
+  root to: 'landing#index'
   devise_for :user, class_name: "User::Base"
   devise_for :client
   resources :inquires
