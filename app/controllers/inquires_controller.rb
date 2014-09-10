@@ -1,5 +1,8 @@
 class InquiresController < ApplicationController
+  include Host
+
   before_action :authenticate_user!, except: :create
+  protect_from_forgery except: :create
   load_and_authorize_resource through: :current_host, except: :create
   respond_to :json
 
@@ -17,6 +20,7 @@ class InquiresController < ApplicationController
     @inquire = @client.inquires.build outside_inquire_params
     if @client.save
       flash[:notice] = 'Inquire was successfully created.'
+      WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :created, location: @inquire
     else
       respond_with @inquire, status: :unprocessable_entity
@@ -40,10 +44,6 @@ class InquiresController < ApplicationController
   end
 
   private
-    def current_host
-      current_user.is_a?(Client) ? current_user : current_user.client
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def inquire_params
       params.require(:inquire).permit :status

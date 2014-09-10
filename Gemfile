@@ -6,6 +6,8 @@ gem 'rails', '~>4.0.1'
 # Mongoid
 gem 'mongoid', '~>4.0.0'
 
+gem 'websocket-rails'
+
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
 gem 'ember-rails'
@@ -67,6 +69,7 @@ group :development do
   gem 'net-ssh', '~> 2.7.0'
 end
 
+gem 'thin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
