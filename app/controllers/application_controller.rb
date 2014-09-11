@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def safe_sending_message(chanel, event, message)
-    begin
-      WebsocketRails[chanel].trigger event, message
-    rescue NameError
-    end
+    websocket = const_defined?('WebsocketRails') ? const_get('WebsocketRails') : nil
+    websocket[chanel].trigger event, message unless websocket.nil?
   end
 end
