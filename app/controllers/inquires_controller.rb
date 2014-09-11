@@ -18,6 +18,7 @@ class InquiresController < ApplicationController
     return head(status: :unprocessable_entity) if params[:client_id].blank?
     @client = Client.find params[:client_id]
     @inquire = @client.inquires.build outside_inquire_params
+    @inquire.set_timestamp
     if @client.save
       flash[:notice] = 'Inquire was successfully created.'
       WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])

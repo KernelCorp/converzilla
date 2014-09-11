@@ -4,6 +4,9 @@ Converzilla.Inquire = DS.Model.extend
   email: DS.attr 'string'
   phone: DS.attr 'string'
   name:  DS.attr 'string'
+  sort:  DS.attr 'number'
+  created_at: DS.attr 'date'
+  updated_at: DS.attr 'date'
   status: DS.attr 'string'
 
   statusClass: ( ->
