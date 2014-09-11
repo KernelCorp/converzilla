@@ -1,4 +1,4 @@
-if const_defined?('WebsocketRails')
+if Module.const_defined?('WebsocketRails')
   WebsocketRails.setup do |config|
 
     # Uncomment to override the default log level. The log level can be

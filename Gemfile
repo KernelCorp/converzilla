@@ -6,7 +6,7 @@ gem 'rails', '~>4.0.1'
 # Mongoid
 gem 'mongoid', '~>4.0.0'
 
-gem 'websocket-rails'
+gem 'websocket-rails', platform: :ruby
 
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
