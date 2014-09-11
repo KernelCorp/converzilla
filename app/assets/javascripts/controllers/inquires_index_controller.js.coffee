@@ -8,6 +8,10 @@ Converzilla.InquiresIndexController = Ember.ArrayController.extend({
       if status in ['in_progress', 'new', 'close']
         inquire.set 'status', status
         inquire.save()
+
+    remove: (inquire) ->
+      inquire.deleteRecord()
+      inquire.save()
   }
 })
 

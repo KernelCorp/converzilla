@@ -29,4 +29,4 @@ table.ui.table.segment
           = if isInProgress
             i.icon.checkmark.as_link{action 'changeStatus' this 'close'}
         = ifIAmClient
-          i.icon.remove
+          i.icon.remove.as_link{action 'remove' this}
