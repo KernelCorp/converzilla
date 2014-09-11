@@ -9,8 +9,6 @@ table.ui.table.segment
       th
         | имя
       th
-        | дата создания
-      th
         | статус
       th
         | действия
@@ -22,8 +20,6 @@ table.ui.table.segment
         =  phone
       td
         = name
-      td
-        = created_at
       td
         = status
       td
