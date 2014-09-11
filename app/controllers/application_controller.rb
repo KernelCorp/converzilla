@@ -2,4 +2,12 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  protected
+  def safe_sending_message(chanel, event, message)
+    begin
+      WebsocketRails[chanel].trigger event, message
+    rescue NameError
+    end
+  end
 end
