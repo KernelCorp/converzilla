@@ -62,4 +62,15 @@ if Module.const_defined?('WebsocketRails')
     # config.allowed_origins = ['http://localhost:3000']
 
   end
+else
+  #window fix
+  module WebsocketRails
+    def self.trigger(*args)
+      puts 'not working on windws'
+    end
+
+    def self.[](arg)
+      self
+    end
+  end
 end
