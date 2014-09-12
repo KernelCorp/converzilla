@@ -4,9 +4,10 @@ class @FormController
   clientId: null
   host = 'localhost:3000'
 
-  constructor: (vkController, clientId) ->
-    @clientId = clientId
-    @vkController = vkController
+  constructor: (vkController, exitController, clientId) ->
+    @clientId       = clientId
+    @vkController   = vkController
+    @exitController = exitController
     @buildForm()
 
 
@@ -16,8 +17,9 @@ class @FormController
       url: "http://#{host}/inquires/new",
       success: (data) =>
         document.body.innerHTML += data
-        @form =  $ "#callback_modal form#new_inquire"
+        @form =  $ "#inquire_modal form#new_inquire"
         @form.find('button#submit').click @onSubmit
+        @exitController.bind_form()
     }
 
 
@@ -30,8 +32,7 @@ class @FormController
     }
 
     $.ajax {
-      dataType: 'jsonp',
-      jsonp: 'jsonp_callback',
+      crossDomain: true,
       data: {inquire: inquireData, client_id: @clientId},
       url: "http://#{host}/inquires",
       method: 'POST'

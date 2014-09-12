@@ -2,6 +2,8 @@ doctype html
 html
   head
     title Converzilla
+    = stylesheet_link_tag    "public", media: "all"
+    = javascript_include_tag "public"
     = csrf_meta_tags
   body
     .container

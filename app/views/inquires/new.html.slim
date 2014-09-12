@@ -1,11 +1,18 @@
-#callback_modal
-  form#new_inquire
-    label
-      | Ваш телефон
-    input name='phone'
-    label
-      | Ваш email
-    input name='email'
-    = hidden_field_tag :client_id, @client.id
-    button#submit
-      | Отправить
+#inquire_shadow
+#inquire_modal
+  .ui.form.segment
+    form#new_inquire
+      .field
+        label
+          | Ваш телефон
+        .ui.left.labeled.icon.input
+          input name='phone'
+      .field
+        label
+          | Ваш email
+        .ui.left.labeled.icon.input
+          input name='email'
+      = hidden_field_tag :client_id, @client.id
+      button.ui.blue.submit.button#submit
+        | Отправить
+

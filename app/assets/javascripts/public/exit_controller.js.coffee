@@ -1,9 +1,11 @@
 class @ExitController
   constructor: ->
-    $('#callback_modal .close').click @hide_modal
-    $('#callback_modal #new_inquire').bind 'ajax:success', @on_success
     document.body.addEventListener "mousemove", @check_exit_normal_br
     return
+
+  bind_form: =>
+    $('#inquire_modal .close').click @hide_modal
+    $('#inquire_modal #new_inquire').bind 'ajax:success', @on_success
 
   destructor: ->
     document.body.removeEventListener "mousemove", @check_exit_normal_br
@@ -40,7 +42,9 @@ class @ExitController
   check_exit_normal_br: (e)=>
     unless @control_movement
       return
-
+#    console.log "clientY - #{e.clientY}"
+#    console.log "pageY - #{e.pageY}"
+#    console.log @middle_zone_y
     if e.clientY > @middle_zone_y
 
       @top_zone = false
@@ -67,15 +71,14 @@ class @ExitController
     return
 
   show_modal: ->
-    unless $('#is_recipient').val() == 'true' || $('#request_made').val() == 'true'
-      $('#callback_shadow').show()
-      $('#callback_modal').show()
-      $('#callback_shadow').click(@hide_modal)
+    $('#inquire_shadow').show()
+    $('#inquire_modal').show()
+    $('#inquire_shadow').click(@hide_modal)
     return
 
   hide_modal: =>
-    $('#callback_shadow').hide()
-    $('#callback_modal').hide()
+    $('#inquire_shadow').hide()
+    $('#inquire_modal').hide()
     @destroy()
     return
 

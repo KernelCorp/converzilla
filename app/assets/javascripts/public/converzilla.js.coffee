@@ -7,4 +7,4 @@ class @Converzilla
     @clientId = clientId
     @vkController   = new VKController()
     @exitController = new ExitController()
-    @formController = new FormController(@vkController, @clientId)
+    @formController = new FormController(@vkController, @exitController, @clientId)
