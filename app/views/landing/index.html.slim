@@ -2,6 +2,7 @@ h1 Landing#index
 p Find me in app/views/landing/index.html.slim
 
 script src="//vkontakte.ru/js/api/openapi.js" type="text/javascript"
-= javascript_include_tag 'public/vk'
-javascript:
-  window.vk = new VKController();
+= javascript_include_tag 'public'
+coffee:
+  $(document).ready ->
+    new Converzilla('5409b0236d617857d5000000')

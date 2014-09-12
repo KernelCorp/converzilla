@@ -3,8 +3,13 @@ class InquiresController < ApplicationController
 
   before_action :authenticate_user!, except: :create
   protect_from_forgery except: :create
-  load_and_authorize_resource through: :current_host, except: :create
+  load_and_authorize_resource through: :current_host, except: [:create, :new]
   respond_to :json
+
+  def new
+    @client = Client.find params[:client_id]
+    render layout: false
+  end
 
   def index
     respond_with @inquires
