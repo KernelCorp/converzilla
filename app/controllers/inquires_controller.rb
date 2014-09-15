@@ -57,6 +57,9 @@ class InquiresController < ApplicationController
     end
 
     def outside_inquire_params
-      params.require(:inquire).permit :email, :name, :phone
+      params.require(:inquire).permit(:email, :name, :phone).tap do |whitelisted|
+        whitelisted[:vk_user_info] = params.require(:inquire).slice(:vk_user_info).permit![:vk_user_info]
+      end
+     #params.require(:inquire).permit(:email, :name, :phone, vk_user_info: [:last_name])
     end
 end
