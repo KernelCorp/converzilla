@@ -1,3 +1,4 @@
+require 'js_script_generator'
 class Client < User::Base
 
   devise :registerable
@@ -6,4 +7,7 @@ class Client < User::Base
 
   has_many :operators
 
+  def script
+    JsScriptGenerator.get self.id
+  end
 end
