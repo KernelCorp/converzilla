@@ -28,7 +28,7 @@ class @FormController
     inquireData = {
       phone: @form.find('input[name=phone]').val(),
       email: @form.find('input[name=phone]').val()
-      vk_info: @vkController.userInfo
+      vk_user_info: @vkController.userInfo
     }
 
     $.ajax {

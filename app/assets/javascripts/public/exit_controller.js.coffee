@@ -42,9 +42,6 @@ class @ExitController
   check_exit_normal_br: (e)=>
     unless @control_movement
       return
-#    console.log "clientY - #{e.clientY}"
-#    console.log "pageY - #{e.pageY}"
-#    console.log @middle_zone_y
     if e.clientY > @middle_zone_y
 
       @top_zone = false
