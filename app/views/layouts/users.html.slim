@@ -14,11 +14,16 @@ html
           .ui.vertical.menu
             - if can? :manage, Operator
               a.item href='#/operators'
-                | Operators
+                | Операторы
                 i.users.icon
 
             a.item href='#/inquires'
-              | Inquires
+              | Заявки
               i.briefcase.icon
+            - if can? :manage, :js_script
+              a.item href='#/js_script'
+                | Код отлова
+                i.code.icon
+
         .eleven.wide.column
           = yield

@@ -1,3 +1,3 @@
-json.set! :script do
-  json.set! :data, @script
+json.set! :js_script do
+  json.set! :data, raw(@script)
 end

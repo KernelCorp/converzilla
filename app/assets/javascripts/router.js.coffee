@@ -1,6 +1,7 @@
 # For more information see: http://emberjs.com/guides/routing/
 
 Converzilla.Router.map ()->
+  @resource 'js_script'
   @resource 'operators', ->
     @route 'new'
     @route 'edit'
