@@ -5,7 +5,7 @@
 #= require ember-data
 #= require_self
 #= require converzilla
-#= require websocket_rails/main
+#= require all
 
 
 # for more details see: http://emberjs.com/guides/application/
