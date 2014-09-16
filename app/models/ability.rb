@@ -9,6 +9,7 @@ class Ability
     if user.is_a? Client
       can :manage, Inquire
       can :manage, Operator
+      can :manage, :js_script
     end
     # Define abilities for the passed in user here. For example:
     #

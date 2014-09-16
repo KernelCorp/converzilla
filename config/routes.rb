@@ -5,4 +5,5 @@ Converzilla::Application.routes.draw do
   resources :inquires
   resources :operators
   resource :users, only: :show
+  resource :js_script, only: :show
 end

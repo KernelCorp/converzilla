@@ -1,0 +1,30 @@
+map $http_upgrade $connection_upgrade {
+  default Upgrade;
+  ''      Close;
+}
+
+upstream converzilla {
+  server unix:/var/www/converzilla/shared/thin.0.sock;
+}
+
+server {
+  listen 80;
+  server_name converzilla.kerweb.ru;
+
+  root /var/www/converzilla/current/public;
+
+  location / {
+    try_files $uri @converzilla;
+  }
+
+  location @converzilla {
+    proxy_pass http://converzilla;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_redirect off;
+  }
+}

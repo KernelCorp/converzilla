@@ -25,4 +25,6 @@ Converzilla::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.middleware.delete Rack::Lock
+
+  config.host = 'localhost:300'
 end

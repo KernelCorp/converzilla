@@ -77,7 +77,7 @@ RSpec.describe InquiresController, :type => :controller do
 
     let(:client) { FactoryGirl.create :client }
 
-    let(:valid_attributes) { {email: 'inquire@example.com', phone: '99223453221', name: 'vasya'} }
+    let(:valid_attributes) { {email: 'inquire@example.com', phone: '99223453221', name: 'vasya', vk_user_info: {last_name: 'name'}} }
 
     context 'with valid params' do
 
@@ -90,6 +90,11 @@ RSpec.describe InquiresController, :type => :controller do
       it 'assigns a newly created inquire as @inquire' do
         post :create, {client_id: client.to_param, inquire: valid_attributes}
         expect(assigns(:inquire)).to be_a(Inquire)
+      end
+
+      it 'set vk last name' do
+        post :create, {client_id: client.to_param, inquire: valid_attributes}
+        expect(assigns(:inquire).vk_user_info[:last_name]).to eq('name')
       end
     end
 

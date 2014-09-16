@@ -3,8 +3,13 @@ class InquiresController < ApplicationController
 
   before_action :authenticate_user!, except: :create
   protect_from_forgery except: :create
-  load_and_authorize_resource through: :current_host, except: :create
+  load_and_authorize_resource through: :current_host, except: [:create, :new]
   respond_to :json
+
+  def new
+    @client = Client.find params[:client_id]
+    render layout: false
+  end
 
   def index
     respond_with @inquires
@@ -18,9 +23,10 @@ class InquiresController < ApplicationController
     return head(status: :unprocessable_entity) if params[:client_id].blank?
     @client = Client.find params[:client_id]
     @inquire = @client.inquires.build outside_inquire_params
+    @inquire.set_timestamp
     if @client.save
       flash[:notice] = 'Inquire was successfully created.'
-      safe_sending_message @client.id.to_s, :new_inquire, render_to_string('inquires/show', formats: [:json])
+      WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :created, location: @inquire
     else
       respond_with @inquire, status: :unprocessable_entity
@@ -31,7 +37,7 @@ class InquiresController < ApplicationController
   def update
     if @inquire.update(inquire_params)
       flash[:notice] = 'Inquire was successfully updated.'
-      safe_sending_message @client.id.to_s, :new_inquire, render_to_string('inquires/show', formats: [:json])
+      WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :updated, location: @inquire
     else
       respond_with @inquire.errors, status: :unprocessable_entity
@@ -51,6 +57,9 @@ class InquiresController < ApplicationController
     end
 
     def outside_inquire_params
-      params.require(:inquire).permit :email, :name, :phone
+      params.require(:inquire).permit(:email, :name, :phone).tap do |whitelisted|
+        whitelisted[:vk_user_info] = params.require(:inquire).slice(:vk_user_info).permit![:vk_user_info]
+      end
+     #params.require(:inquire).permit(:email, :name, :phone, vk_user_info: [:last_name])
     end
 end
