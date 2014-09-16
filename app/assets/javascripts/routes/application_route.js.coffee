@@ -2,7 +2,7 @@
 
 Converzilla.ApplicationRoute = Ember.Route.extend({
   activate: ->
-    dispatcher = new WebSocketRails('localhost:3000/websocket')
+    dispatcher = new WebSocketRails('converzilla.kerweb.ru/websocket')
     channel = dispatcher.subscribe(window.clientId)
     channel.bind 'new_inquire', (data) =>
       inquire_data =  JSON.parse(data).inquire

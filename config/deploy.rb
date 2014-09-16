@@ -66,15 +66,15 @@ after "deploy", "deploy:migrate"
 # For websocets
 namespace :websockets do
   task :start do
-    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websockets_rails:start_server"
+    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websocket_rails:start_server"
   end
 
   task :stop do
-    run "cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websockets_rails:stop_server"
+    run "cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websocket_rails:stop_server"
   end
 
   task :restart do
-    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websockets_rails:stop_server"
-    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websocketsa_rails:start_server"
+    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websocket_rails:stop_server"
+    run " cd #{deploy_to}/current && bundle exec rake RAILS_ENV=#{rails_env} websocket_rails:start_server"
   end
 end
