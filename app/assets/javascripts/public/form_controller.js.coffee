@@ -32,7 +32,6 @@ class @FormController
     }
 
     $.ajax {
-      crossDomain: true,
       data: {inquire: inquireData, client_id: @clientId},
       url: "http://#{host}/inquires",
       method: 'POST'
