@@ -1,8 +1,7 @@
 class InquiresController < ApplicationController
   include Host
 
-  before_action :authenticate_user!, except: :create
-  after_action  :allow_cross_domain_access, only: [:new, :create]
+  before_action :authenticate_user!, except: [:create, :new]
 
   protect_from_forgery except: :create
   load_and_authorize_resource through: :current_host, except: [:create, :new]
@@ -65,7 +64,4 @@ class InquiresController < ApplicationController
      #params.require(:inquire).permit(:email, :name, :phone, vk_user_info: [:last_name])
     end
 
-  def allow_cross_domain_access
-    response.headers['Access-Control-Allow-Origin']  = '*'
-  end
 end
