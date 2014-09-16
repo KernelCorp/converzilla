@@ -8,6 +8,8 @@ gem 'mongoid', '~>4.0.0'
 
 gem 'websocket-rails', platform: :ruby
 
+gem 'non-stupid-digest-assets'
+
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
 gem 'ember-rails'
