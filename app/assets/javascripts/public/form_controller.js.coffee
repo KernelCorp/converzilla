@@ -2,7 +2,7 @@ class @FormController
 
   form: null
   clientId: null
-  host = 'localhost:3000'
+  host = 'converzilla.kerweb.ru'
 
   constructor: (vkController, exitController, clientId) ->
     @clientId       = clientId
