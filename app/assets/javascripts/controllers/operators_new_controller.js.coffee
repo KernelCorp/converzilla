@@ -5,6 +5,7 @@ Converzilla.OperatorsNewController = Ember.Controller.extend({
     create: ->
       operator = @store.createRecord 'operator', {email: @get('email'), password: @get('password')}
       operator.save()
+      @transitionToRoute 'operators'
   }
 })
 
