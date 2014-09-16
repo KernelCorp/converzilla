@@ -3,9 +3,10 @@ class Client < User::Base
 
   devise :registerable
 
-  embeds_many :inquires, order: :created_at.desc
-
+  has_many :inquires, order: :created_at.desc, dependent: :destroy
   has_many :operators
+
+  accepts_nested_attributes_for :inquires
 
   def script
     JsScriptGenerator.get(self.id)

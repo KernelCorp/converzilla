@@ -10,6 +10,9 @@ FactoryGirl.define do
   factory :client do
     email "aaa#{SecureRandom.hex(5)}@bbb.ccc"
     password 'password123'
-    inquires [FactoryGirl.build(:inquire)]
+    after(:create) do |user|
+      user.inquires << FactoryGirl.create(:inquire)
+      user.save!
+    end
   end
 end

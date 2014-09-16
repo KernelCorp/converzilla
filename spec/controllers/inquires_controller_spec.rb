@@ -30,21 +30,19 @@ RSpec.describe InquiresController, :type => :controller do
 
   before(:each) {request.accept = 'application/json'}
 
-
-
   describe "GET index" do
     context 'as client' do
       include_context 'signed in as client'
       it "assigns all client's inquires as @inquires" do
         get :index
-        expect(assigns(:inquires)).to eq(client.inquires)
+        expect(assigns(:inquires).to_a).to eq(client.inquires)
       end
     end
     context 'as operator' do
       include_context 'signed in as operator'
       it "assigns all client's inquires as @inquires" do
         get :index
-        expect(assigns(:inquires)).to eq(operator.client.inquires)
+        expect(assigns(:inquires).to_a).to eq(operator.client.inquires)
       end
     end
   end
