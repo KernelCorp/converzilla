@@ -2,6 +2,8 @@ class InquiresController < ApplicationController
   include Host
 
   before_action :authenticate_user!, except: :create
+  after_action  :allow_cross_domain_access, only: [:new, :create]
+
   protect_from_forgery except: :create
   load_and_authorize_resource through: :current_host, except: [:create, :new]
   respond_to :json
@@ -62,4 +64,9 @@ class InquiresController < ApplicationController
       end
      #params.require(:inquire).permit(:email, :name, :phone, vk_user_info: [:last_name])
     end
+
+  def allow_cross_domain_access
+    response.headers['Access-Control-Allow-Origin']  = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST'
+  end
 end
