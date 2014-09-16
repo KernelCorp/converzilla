@@ -6,7 +6,7 @@ gem 'rails', '~>4.0.1'
 # Mongoid
 gem 'mongoid', '~>4.0.0'
 
-gem 'websocket-rails', platform: :ruby
+gem 'websocket-rails', platforms: :ruby
 
 
 gem 'non-stupid-digest-assets'
