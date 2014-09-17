@@ -10,11 +10,13 @@ class @VKController
       apiId: 4546123
     }
 
+
+
+  doWithVkInfo: (block) =>
     VK.Auth.getLoginStatus (response) =>
       if response.session
         @userId = response.session.mid
         VK.api 'users.get', {user_ids: response.session.mid, fields: @fields}, (data) =>
           @userInfo = data.response[0] if (data.response)
-
-
+          block.call(@, @userInfo)
 

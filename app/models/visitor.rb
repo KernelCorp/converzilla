@@ -6,5 +6,5 @@ class Visitor
 
   belongs_to :client
 
-  delegate :uid, :last_name, :first_name, :sex, :url, to: :vk_user_info, prefix: :vk
+  delegate :uid, :last_name, :first_name, :sex, :url, to: :vk_user_info, prefix: :vk, allow_nil: true
 end
