@@ -9,7 +9,7 @@ class Inquire
   field :phone
   field :status, default: 'new'
 
-  embeds_one :vk_user_info
+  embeds_one :vk_user_info, as: :vkinfoable
   belongs_to :operator
   belongs_to :client
 

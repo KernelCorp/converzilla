@@ -12,6 +12,7 @@ FactoryGirl.define do
     password 'password123'
     after(:create) do |user|
       user.inquires << FactoryGirl.create(:inquire)
+      user.visitors << FactoryGirl.create(:visitor)
       user.save!
     end
   end
