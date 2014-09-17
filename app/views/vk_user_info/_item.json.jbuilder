@@ -1,1 +1,0 @@
-json.extract! vk_user_info, :uid, :last_name, :first_name, :sex, :url
