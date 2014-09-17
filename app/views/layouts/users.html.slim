@@ -15,11 +15,14 @@ html
             - if can? :manage, Operator
               a.item href='#/operators'
                 | Операторы
-                i.users.icon
+                i.phone.icon
 
             a.item href='#/inquires'
               | Заявки
               i.briefcase.icon
+            a.item href='#/visitors'
+              | Посетители
+              i.users.icon
             - if can? :manage, :js_script
               a.item href='#/js_script'
                 | Код отлова
