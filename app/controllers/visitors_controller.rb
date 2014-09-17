@@ -18,8 +18,9 @@ class VisitorsController < ApplicationController
   def create
     return head(status: :unprocessable_entity) if params[:client_id].blank?
     @client = Client.find params[:client_id]
-    @visitor = @client.visitors.build outside_visitor_params
-    if @visitor.save
+    @visitor = @client.visitors.where('vk_user_info.uid' => params[:visitor][:vk_user_info][:uid]).first
+    @visitor ||= @client.visitors.build
+    if @visitor.update_attributes outside_visitor_params
       flash[:notice] = 'Inquire was successfully created.'
       #WebsocketRails[@client.id.to_s].trigger :new_visitor, render_to_string('visitors/show', formats: [:json])
       respond_with @visitor, status: :created, location: @visitor
