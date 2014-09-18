@@ -1,7 +1,8 @@
 class InquiresController < ApplicationController
   include Host
 
-  before_action :authenticate_user!, except: :create
+  before_action :authenticate_user!, except: [:create, :new]
+
   protect_from_forgery except: :create
   load_and_authorize_resource through: :current_host, except: [:create, :new]
   respond_to :json
@@ -24,7 +25,7 @@ class InquiresController < ApplicationController
     @client = Client.find params[:client_id]
     @inquire = @client.inquires.build outside_inquire_params
     @inquire.set_timestamp
-    if @client.save
+    if @inquire.save
       flash[:notice] = 'Inquire was successfully created.'
       WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :created, location: @inquire
@@ -37,7 +38,7 @@ class InquiresController < ApplicationController
   def update
     if @inquire.update(inquire_params)
       flash[:notice] = 'Inquire was successfully updated.'
-      WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
+      WebsocketRails[@inquire.client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
       respond_with @inquire, status: :updated, location: @inquire
     else
       respond_with @inquire.errors, status: :unprocessable_entity
@@ -62,4 +63,5 @@ class InquiresController < ApplicationController
       end
      #params.require(:inquire).permit(:email, :name, :phone, vk_user_info: [:last_name])
     end
+
 end

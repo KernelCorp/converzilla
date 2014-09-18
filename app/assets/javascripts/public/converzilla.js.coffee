@@ -3,8 +3,11 @@ class @Converzilla
   clientId: null
   vkController: null
 
-  constructor: (clientId) ->
+  constructor: (clientId, options = {exitForm: true, visitors: false}) ->
     @clientId = clientId
     @vkController   = new VKController()
-    @exitController = new ExitController()
-    @formController = new FormController(@vkController, @exitController, @clientId)
+    if options['exitForm']
+      @exitController = new ExitController()
+      @formController = new FormController(@vkController, @exitController, @clientId)
+    if options['visitors']
+      @visitorsController = new VisitorsController(@clientId, @vkController)

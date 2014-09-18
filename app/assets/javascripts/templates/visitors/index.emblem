@@ -1,0 +1,28 @@
+h3.ui.header Посетители
+table.ui.table.segment
+  thead
+    tr
+      th
+        | Имя
+      th
+        | Фамилия
+      th
+        | id
+      th
+        | url
+      th
+        | Действия
+
+  = each
+    tr
+      td
+        = vk_first_name
+      td
+        =  vk_last_name
+      td
+        = vk_uid
+      td
+        = vk_url
+      td
+        = ifIAmClient
+          i.icon.remove.as_link{action 'remove' this}

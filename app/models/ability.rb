@@ -4,11 +4,13 @@ class Ability
   def initialize(user)
     if user.is_a? Operator
       can [:read, :update], Inquire
+      can [:read, :update], Visitor
     end
 
     if user.is_a? Client
       can :manage, Inquire
       can :manage, Operator
+      can :manage, Visitor
       can :manage, :js_script
     end
     # Define abilities for the passed in user here. For example:

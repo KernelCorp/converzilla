@@ -9,9 +9,9 @@ class Inquire
   field :phone
   field :status, default: 'new'
 
-  embedded_in :client
-  embeds_one :vk_user_info
+  embeds_one :vk_user_info, as: :vkinfoable
   belongs_to :operator
+  belongs_to :client
 
   accepts_nested_attributes_for :vk_user_info
 

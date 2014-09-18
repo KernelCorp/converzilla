@@ -2,7 +2,7 @@ class @FormController
 
   form: null
   clientId: null
-  host = 'localhost:3000'
+  host = 'converzilla.kerweb.ru'
 
   constructor: (vkController, exitController, clientId) ->
     @clientId       = clientId
@@ -32,7 +32,6 @@ class @FormController
     }
 
     $.ajax {
-      crossDomain: true,
       data: {inquire: inquireData, client_id: @clientId},
       url: "http://#{host}/inquires",
       method: 'POST'
