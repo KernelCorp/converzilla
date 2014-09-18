@@ -455,7 +455,7 @@ a.navbar-brand {
 ===========================*/
 
 #promo-one  {
-	background-image: url("../assets/images/landing/promotions/promo-one-bg.jpg");
+  background-image: image_url('landing/promotions/promo-one-bg.jpg');
 }
 
 #promo-one h2 {
@@ -922,8 +922,8 @@ a.navbar-brand {
 =============================*/
 
 #fun-fact {
-	background-image: url("../assets/images/landing/promotions/promo-three-bg.jpg");
-	background-color: #d9232d;		
+  background-image: image_url('landing/promotions/promo-three-bg.jpg');
+  background-color: #d9232d;
 }
 
 #fun-fact .parallax-content {
@@ -1006,7 +1006,7 @@ h3.timer {
 ==========================*/
 
 #news-letter {
-	background-image: url("../assets/images/landing/promotions/news-letter-bg.jpg");	
+    background-image: image_url('landing/promotions/news-letter-bg.jpg');
 	background-color: #d9232d;
 	overflow:hidden;
 }
@@ -1112,7 +1112,7 @@ h3.timer {
 ========Twitter CSS=======
 ==========================*/
 #twitter {
-	background-image: url("../assets/images/landing/promotions/twitter-bg.jpg");	
+    background-image: image_url('landing/promotions/twitter-bg.jpg');
 }
 
 #twitter i {

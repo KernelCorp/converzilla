@@ -1,4 +1,804 @@
-script src="//vkontakte.ru/js/api/openapi.js" type="text/javascript"
-coffee:
-  $(document).ready ->
-    new Converzilla('5409b0236d617857d5000000')
+/! Page Loader
+.preloader
+  #loaderImage
+    
+header#navigation
+  .navbar.main-nav role="banner"
+    .container
+      .navbar-header
+        button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href="index-2.html"
+          h1
+            = image_tag('landing/logo.png', alt: 'converzilla logo', class: "img img-responsive")
+      .top-bar
+        span
+          a href="#"
+            i.fa.fa-envelope
+            | iwant@converzilla.ru
+        span
+          i.fa.fa-phone
+          | (383) 213-46798
+      nav.collapse.navbar-collapse.navbar-right
+        ul.nav.navbar-nav
+          li.scroll.active
+            a href="#navigation"  на главную
+          li.scroll
+            a href="#service"  Что это?
+          /li.scroll
+          /  a href="#recent-works"  Works
+          li.scroll
+            a href="#about-us"  Кто мы?
+          li.scroll
+            a href="#blog"  Блог
+          li.scroll
+            a href="#clients"  Клиенты
+          li.scroll
+            a href="#pricing-tables"  Цена
+          li.scroll
+            a href="#contact-us"  Вопросы
+      .search
+        form role="form"
+          i.fa.fa-search
+          .field-toggle
+            input.search-form autocomplete="off" placeholder="Search" type="text"
+/! /#navigation
+
+#carousel-wrapper
+  #home-carousel.carousel.slide data-ride="carousel" data-interval='4000' pause="false"
+    .container
+      .carousel-arrows
+        a.home-carousel-left data-slide="prev" href="#home-carousel"
+          i.fa.fa-angle-left
+        a.home-carousel-right data-slide="next" href="#home-carousel"
+          i.fa.fa-angle-right
+    .carousel-inner
+      .item.active style=("background-image: url(#{image_url('landing/home/bg1.jpg')})")
+        .carousel-caption.container
+          h1.animated.fadeInUpBig Получи инструмент
+          h2.animated.zoomIn увеличения продаж
+          p.animated.fadeInDownBig Converzilla - инновационный сервис обработки данных посещений вашего сайта.<br>Увеличивай конверсию не прибегая к дополнительной рекламе.
+      .item style=("background-image: url(#{image_url('landing/home/bg2.jpg')})")
+        .carousel-caption.container
+          h1.animated.fadeInUpBig Будь на шаг
+          h2.animated.zoomIn впереди конкурентов
+          p.animated.fadeInDownBig Установи Converzilla на свой сайт сегодня и забирай клиентов,<br>о которых конкуренты даже не подозревают
+      .item style=("background-image: url(#{image_url('landing/home/bg3.jpg')})")
+        .carousel-caption.container
+          h1.animated.fadeInUpBig Не про$@# свой шанс
+          h2.animated.zoomIn УВЕЛИЧИТЬ КОНВЕРСИЮ
+          p.animated.fadeInDownBig Установи Converzilla прямо сейчас<br>и получай мгновенный рост увеличения эффективности.
+    .brand-promotion
+      .container
+        .media.row
+          .col-sm-4
+            .brand-content.wow.fadeIn data-wow-delay="300ms" data-wow-duration="700ms"
+              =image_tag('landing/home/brand1.png', class: "pull-left img-responsive", alt:'converzilla')
+              .media-body
+                h2 Ask Us Anything
+                p This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+          .col-sm-4
+            .brand-content.wow.fadeIn data-wow-delay="400ms" data-wow-duration="700ms"
+              =image_tag('landing/home/brand2.png', class: "pull-left img-responsive", alt:'converzilla')
+              .media-body
+                h2 Brand & Identity
+                p This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+          .col-sm-4
+            .brand-content.wow.fadeIn data-wow-delay="500ms" data-wow-duration="700ms"
+              =image_tag('landing/home/brand3.png', class: "pull-left img-responsive", alt:'converzilla')
+              .media-body
+                h2 Visual Composer
+                p This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+    /! /#brand-promotion
+  /! /#home-carousel
+/! /#carousel-wrapper
+
+#service.padding-top.padding-bottom
+  .container.text-center
+    .row.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Services
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.
+    .row
+      .col-md-3.col-sm-6.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        .service-icon
+          i.fa.fa-magic
+        .service-text
+          h4 Unlimited Colors
+          p Praesent faucibus nisl sit nulla sollicitudin a sed purus.
+      .col-md-3.col-sm-6.wow.zoomIn data-wow-delay="400ms" data-wow-duration="700ms"
+        .service-icon
+          i.fa.fa-gear class="(alias)"
+        .service-text
+          h4 Theme Options
+          p voluptatem accusantium.Sed ut perspiciatis unde omnis
+      .col-md-3.col-sm-6.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+        .service-icon
+          i.fa.fa-pagelines
+        .service-text
+          h4 SEO Friendly
+          p Swine porchetta shank hamburger beef ribs turducken ground
+      .col-md-3.col-sm-6.wow.zoomIn data-wow-delay="600ms" data-wow-duration="700ms"
+        .service-icon
+          i.fa.fa-bomb
+        .service-text
+          h4 Ubercart platform
+          p Ground round fatback ribeye tail shank pork chop
+/! /#about us
+
+#promo-one.parallax-section
+  .parallax-content
+    .container.text-center.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+      h1 Не гонись за деньгами — иди им навстречу
+      h2
+        | Аристотель Онасис
+        span греческий миллиардер
+      br
+      a.btn.btn-submit бесплатная Регистрация
+/! /parallax-section
+
+#recent-works.padding-top.padding-bottom.off-white style='display:none'
+  /.container
+  /  .row.text-center.section-title
+  /    .col-sm-6.col-sm-offset-3
+  /      h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Recent Works
+  /      hr.title-border
+  /        p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.
+  /.portfolio-wrapper.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"
+  /  ul.filter.text-center
+  /    li
+  /      a.active data-filter="*" href="#"  All
+  /    li
+  /      a data-filter=".video" href="#"  Video
+  /    li
+  /      a data-filter=".branding" href="#"  branding
+  /    li
+  /      a data-filter=".graphic" href="#"  Graphic
+  /    li
+  /      a data-filter=".web" href="#"  web
+  /    li
+  /      a data-filter=".package" href="#"  package
+  /  /! /#portfolio-filter
+
+    /ul.portfolio-items
+    /  li.branding.video
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p1.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full1.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis.
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.graphic.video
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p2.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full2.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.video.package
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p3.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full3.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.package.web
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p4.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full4.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.branding.package
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p5.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full5.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.graphic.web
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p6.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full6.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.branding.graphic.package
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p7.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full7.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+    /  li.photography.graphic.video
+    /    .portfolio-content
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p8.jpg"
+    /        .overlay
+    /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full8.jpg"
+    /            i.fa.fa-camera
+    /          h2 Birdy Ambush
+    /          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis
+    /          a.folio-link href="#"
+    /            i.fa.fa-long-arrow-right
+/! /#portfolio
+
+#about-us
+  .container
+    .row.text-center.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  About Us
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.
+    .row.about-content
+      .col-sm-4.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        h2 Our Vision
+        p His sumo verear torquatos et. Ad sint eripuit tractatos sit. Affert dissentiet nec ut. Eos no autem dolorem facilisi. Eu unum mucius scripserit qui. Ipsum omnes voluptaria est id.
+      .col-sm-4.wow.zoomIn data-wow-delay="400ms" data-wow-duration="700ms"
+        h2 Our History
+        p In ius lorem consul ridens, corrumpit maiestatis scriptorem mei ex. Postulant dissentiunt id eum, sonet aliquid sensibus cum et. Ius tation argumentum et.
+      .col-sm-4.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+        h2 Our Values
+        p Cum menandri urbanitas te, sea erat eligendi repudiandae cu, nam te nusquam sententiae cotidieque. Diam postea vulputate vis ne, usu vivendum accommodare ex
+    /! /about-content
+
+    .skills-section
+      .container
+        h2.text-center.heading Our Skills
+        .row
+          .col-sm-3.col-xs-6.skill.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+            #circle-one.skill-circle data-percent="75"
+              span.skill-data 75%
+            h2 HTML
+          .col-sm-3.col-xs-6.skill.wow.zoomIn data-wow-delay="400ms" data-wow-duration="700ms"
+            #circle-two.skill-circle data-percent="55"
+              span.skill-data 55%
+            h2 CSS
+          .col-sm-3.col-xs-6.skill.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+            #circle-three.skill-circle data-percent="50"
+              span.skill-data 50%
+            h2 PHP
+          .col-sm-3.col-xs-6.skill.wow.zoomIn data-wow-delay="600ms" data-wow-duration="700ms"
+            #circle-four.skill-circle data-percent="65"
+              span.skill-data 65%
+            h2 JS
+    /! /Skills Section
+
+    .our-team.padding-bottom.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+      h2.text-center.heading Meet Our Team
+      #team-carousel.carousel.slide data-ride="carousel"
+        a.team-carousel-left data-slide="prev" href="#team-carousel"
+          i.fa.fa-.fa-chevron-left
+        a.team-carousel-right data-slide="next" href="#team-carousel"
+          i.fa.fa-.fa-chevron-right
+        .carousel-inner
+          .item.active
+            .row
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member1.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member2.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member3.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member4.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+          .item
+            .row
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member2.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member1.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member4.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+              .col-sm-3
+                .team-member
+                  .member-image
+                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member3.jpg"
+                  .overlay
+                    h4 Bruce Wayne
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
+                    ul.social-icons
+                      li
+                        a href="#"
+                          i.fa.fa-facebook
+                      li
+                        a href="#"
+                          i.fa.fa-twitter
+                      li
+                        a href="#"
+                          i.fa.fa-google-plus
+                      li
+                        a href="#"
+                          i.fa.fa-linkedin
+    /! /our-team
+/! /about-us
+
+#promo-two.text-center.parallax-section
+  .parallax-content.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+    .container
+      h1 увеличивай конверсию сайта уже сегодня
+      p Пройдите бесплатную регистрацию, подключите Converzilla на ваш сайт и почувствуйте его эффективность
+      a.btn.btn-submit Зарегистрироваться
+/! /parallax-section
+
+#blog.padding-top.padding-bottom
+  .container
+    .row.text-center.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Blog
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.
+    .row
+      .col-sm-12.col-md-6
+        .single-blog.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"
+          .blog-image
+            a href="single-blog.html"
+              img.img-responsive alt="" src="assets/images/landing/blog/post1.jpg" /
+            .post-date
+              p
+                | 28
+                span April
+          .entry-content
+            a href="single-blog.html"
+              h2 Standard post with preview picture
+            .entry-meta
+              span
+                a href="#"
+                  i.fa.fa-user
+                  | Posted By: Admin
+              span
+                a href="#"
+                  i.fa.fa-comments
+                  | 7
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            a.read-more href="single-blog.html"  Read More
+      .col-sm-12.col-md-6
+        .single-blog.wow.fadeInUp data-wow-delay="400ms" data-wow-duration="700ms"
+          .blog-image
+            a href="single-blog.html"
+              img.img-responsive alt="" src="assets/images/landing/blog/post2.jpg" /
+            .post-date
+              p
+                | 28
+                span April
+          .entry-content
+            a href="single-blog.html"
+              h2 Standard post with preview picture
+            .entry-meta
+              span
+                a href="#"
+                  i.fa.fa-user
+                  | Posted By: Admin
+              span
+                a href="#"
+                  i.fa.fa-comments
+                  | 7
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            a.read-more href="single-blog.html"  Read More
+      .col-sm-12.col-md-6
+        .single-blog.wow.fadeInUp data-wow-delay="500ms" data-wow-duration="700ms"
+          .blog-image
+            a href="single-blog.html"
+              img.img-responsive alt="" src="assets/images/landing/blog/post3.jpg" /
+            .post-date
+              p
+                | 28
+                span April
+          .entry-content
+            a href="single-blog.html"
+              h2 Standard post with preview picture
+            .entry-meta
+              span
+                a href="#"
+                  i.fa.fa-user
+                  | Posted By: Admin
+              span
+                a href="#"
+                  i.fa.fa-comments
+                  | 7
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            a.read-more href="single-blog.html"  Read More
+      .col-sm-12.col-md-6
+        .single-blog.wow.fadeInUp data-wow-delay="600ms" data-wow-duration="700ms"
+          .blog-image
+            a href="single-blog.html"
+              img.img-responsive alt="" src="assets/images/landing/blog/post4.jpg" /
+            .post-date
+              p
+                | 28
+                span April
+          .entry-content
+            a href="single-blog.html"
+              h2 Standard post with preview picture
+            .entry-meta
+              span
+                a href="#"
+                  i.fa.fa-user
+                  | Posted By: Admin
+              span
+                a href="#"
+                  i.fa.fa-comments
+                  | 7
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            a.read-more href="single-blog.html"  Read More
+/! /#blog
+
+#fun-fact.text-center.parallax-section
+  .parallax-content
+    .container
+      .text-center.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        h1 SOME FUN FACTS
+        p Lorem ipsum dolor sit amet consectetur adipiscing aliquam est lectus
+      .row.funs
+        .col-xs-4.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+          i.fa.fa-group
+          h2 Clients Worked With
+          h3.timer 1245
+        .col-xs-4.wow.zoomIn data-wow-delay="700ms" data-wow-duration="700ms"
+          i.fa.fa-gift
+          h2 Completed Projects
+          h3.timer 986
+        .col-xs-4.wow.zoomIn data-wow-delay="900ms" data-wow-duration="700ms"
+          i.fa.fa-trophy
+          h3 Winning Awards
+          h3.timer 23
+/! /parallax-section
+
+#clients.padding-top.padding-bottom
+  .container
+    .row.text-center.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Наши клиенты
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  В честь старта проекта, мы обещаем первым 20 клиентам сервиса разместить логотипы со ссылками на сайт в этом блоке,<br>независимо от размера бизнеса
+    #clients-carousel.carousel.slide data-ride="carousel"
+      .carousel-inner.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        .item.active
+          ul
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client1.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client2.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client3.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client4.png" /
+        .item
+          ul
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client1.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client2.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client3.png" /
+            li
+              a.img-responsive href="#"
+                img alt="" src="assets/images/landing/client/client4.png" /
+      a.client-left data-slide="prev" href="#clients-carousel"
+        i.fa.fa-angle-left
+      a.client-right data-slide="next" href="#clients-carousel"
+        i.fa.fa-angle-right
+/! /#clients
+
+#news-letter.text-center.parallax-section
+  .parallax-content
+    .container
+      .col-sm-8.col-sm-offset-2
+        .text-center.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"
+          h1 Новые инструменты
+          p Мы постоянно работаем над новыми эффективными инструментами.<br>Подпишись на новости сервиса, чтобы узнавать о них первым
+        .news-letter.wow.fadeInUp data-wow-delay="500ms" data-wow-duration="700ms"
+          form#newsletter
+            input name="newsletter-email" placeholder=("Укажите ваш e-mail") type="email"
+              button.btn.btn-submit type="submit"  Подписаться
+/! /parallax-section
+
+#pricing-tables.padding-top.padding-bottom
+  .container
+    .row.text-center.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Pricing TAble
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.
+    .pricing-table
+      .row
+        .col-sm-3
+          .single-table.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+            h2 Starter
+            p.price
+              span.dollar-icon $
+              span 19
+              | monthly
+            ul
+              li 5 Domain Names
+              li 1GB Dedicated Ram
+              li 5 Sub Domain
+              li 10 Addon Domain
+              li 24/7 Support
+            a.btn-signup href="#"  Sign-up
+        .col-sm-3
+          .single-table.featured-table.wow.zoomIn data-wow-delay="400ms" data-wow-duration="700ms"
+            h2 Business
+            p.price
+              span.dollar-icon $
+              span 129
+              | monthly
+            ul
+              li 5 Domain Names
+              li 1GB Dedicated Ram
+              li 5 Sub Domain
+              li 10 Addon Domain
+              li 24/7 Support
+            a.btn-signup href="#"  Sign-up
+        .col-sm-3
+          .single-table.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+            h2 Basic
+            p.price
+              span.dollar-icon $
+              span 49
+              | monthly
+            ul
+              li 5 Domain Names
+              li 1GB Dedicated Ram
+              li 5 Sub Domain
+              li 10 Addon Domain
+              li 24/7 Support
+            a.btn-signup href="#"  Sign-up
+        .col-sm-3
+          .single-table.wow.zoomIn data-wow-delay="600ms" data-wow-duration="700ms"
+            h2 Ultra
+            p.price
+              span.dollar-icon $
+              span 199
+              | monthly
+            ul
+              li 5 Domain Names
+              li 1GB Dedicated Ram
+              li 5 Sub Domain
+              li 10 Addon Domain
+              li 24/7 Support
+            a.btn-signup href="#"  Sign-up
+/! /#pricing-tables
+
+#twitter.text-center.parallax-section
+  .parallax-content
+    .container
+      .text-center.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        i.fa.fa-twitter
+        h1 PASSION LEADS TO DESIGN, DESIGN LEADS TO PERFORMANCE, PERFORMANCE LEADS TO SUCCESS!
+        p
+          | @
+          a href="#" > ThemeRegion
+          | \- August 13th, 2014
+/! /parallax-section
+
+#contact-us.padding-top.padding-bottom
+  .container
+    /.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"
+    /  img.img-responsive alt="" src="assets/images/landing/monitor.png"
+    .row.text-center.section-title
+      .col-sm-6.col-sm-offset-3
+        h3.wow.fadeInDown data-wow-delay="300ms" data-wow-duration="700ms"  Вопрос-ответ
+        hr.title-border
+          p.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"  Наши специалисты с удовольствием дадут ответ на любой ваш вопрос<br>и у вас не останется никаких сомнений в необходимости Converzilla<br>для вашего бизнеса.
+    .contact-content
+      .row
+        /.col-sm-4.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+        /  h2 Контакты
+        /  address
+        /    /p
+        /    /  i.fa.fa-map-marker
+        /    /  | Adress: 1234 Street Name, City Name
+        /    p
+        /      i.fa.fa-phone
+        /      | Phone: (383) 213-4679
+        /    p
+        /      i.fa.fa-envelope
+        /      | Email: iwant@converzilla.ru
+        /.col-sm-4.wow.zoomIn data-wow-delay="400ms" data-wow-duration="700ms"
+        /  h2 Business Hours
+        /  .business-time
+        /    p
+        /      i.fa.fa-clock-o
+        /      | Mon. - Fri. 8am to 5pm
+        /    p
+        /      i.fa.fa-clock-o
+        /      | Sat. 8am to 11am
+        /    p
+        /      i.fa.fa-clock-o
+        /      | Sun.
+        /      span Closed
+        .col-sm-4.wow.zoomIn data-wow-delay="500ms" data-wow-duration="700ms"
+          form#contact-form.contact-form action="http://demo.themeregion.com/doors/contact.php" method="post" name="contact-form"
+            .row
+              .form-group.col-sm-6.name-field
+                input.form-control name="name" placeholder="Ваше имя" required="required" type="text"
+              .form-group.col-sm-6.email-field
+                input.form-control name="email" placeholder=("Ваш e-mail") required="required" type="email"
+              .form-group.col-sm-12
+                textarea#message.form-control name="message" placeholder=("Ваш вопрос") required="required" rows="8"
+            .form-group
+              button.btn.btn-submit type="submit"  Отправить
+          #address
+            /p
+            /  i.fa.fa-map-marker
+            /  | Adress: 1234 Street Name, City Name
+            p
+              i.fa.fa-phone
+              | Phone: (383) 213-4679
+              i.fa.fa-envelope
+              | Email: iwant@converzilla.ru
+/! /#contact-us
+
+/#gmap
+/! /#gmap
+
+footer#footer
+  .container.text-center.wow.zoomIn data-wow-delay="300ms" data-wow-duration="700ms"
+    p
+      | &copy; 2014
+      a href="#"  Converzillа
+  a.to-top data-scroll="" href="#navigation"
+/! /#footer
+
+/! /#scripts
+= javascript_include_tag "landing"
+
+
