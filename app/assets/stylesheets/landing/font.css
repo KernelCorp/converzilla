@@ -1,0 +1,132 @@
+/*Font css*/
+
+@font-face {
+    font-family: 'allerregular';
+    src: url('aller_rg-webfont.eot');
+    src: url('aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('aller_rg-webfont.woff') format('woff'),
+         url('aller_rg-webfont.ttf') format('truetype'),
+         url('aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'allerregular';
+        src: url('aller_rg-webfont.svg#allerregular') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'allerbold';
+    src: url('aller_bd-webfont.eot');
+    src: url('aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('aller_bd-webfont.woff') format('woff'),
+         url('aller_bd-webfont.ttf') format('truetype'),
+         url('aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'allerbold';
+        src: url('aller_bd-webfont.svg#allerbold') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'aller_lightregular';
+    src: url('aller_lt-webfont.eot');
+    src: url('aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('aller_lt-webfont.woff') format('woff'),
+         url('aller_lt-webfont.ttf') format('truetype'),
+         url('aller_lt-webfont.svg#aller_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'aller_lightregular';
+        src: url('aller_lt-webfont.svg#aller_lightregular') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'aller_displayregular';
+    src: url('allerdisplay-webfont.eot');
+    src: url('allerdisplay-webfont.eot?#iefix') format('embedded-opentype'),
+         url('allerdisplay-webfont.woff') format('woff'),
+         url('allerdisplay-webfont.ttf') format('truetype'),
+         url('allerdisplay-webfont.svg#aller_displayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'aller_displayregular';
+        src: url('allerdisplay-webfont.svg#aller_displayregular') format('svg');
+    }
+}
+
+/*CUSTOM Font css*/
+
+@font-face {
+    font-family: 'pragmaticaregular';
+    src: url('pragmaticac-webfont.eot');
+    src: url('pragmaticac-webfont.eot?#iefix') format('embedded-opentype'),
+    url('pragmaticac-webfont.woff') format('woff'),
+    url('pragmaticac-webfont.ttf') format('truetype'),
+    url('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'pragmaticaregular';
+        src: url('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'pragmaticabold';
+    src: url('pragmaticac-bold-webfont.eot');
+    src: url('pragmaticac-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('pragmaticac-bold-webfont.woff') format('woff'),
+    url('pragmaticac-bold-webfont.ttf') format('truetype'),
+    url('pragmaticac-bold-webfont.svg#pragmaticacbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'pragmaticabold';
+        src: url('pragmaticac-bold-webfont.svg') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'pragmaticalight';
+    src: url('pragmaticalightc-webfont.eot');
+    src: url('pragmaticalightc-webfont.eot?#iefix') format('embedded-opentype'),
+    url('pragmaticalightc-webfont.woff') format('woff'),
+    url('pragmaticalightc-webfont.ttf') format('truetype'),
+    url('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'pragmaticalight';
+        src: url('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
+    }
+}

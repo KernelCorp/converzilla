@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require forms_fixes
  *= require general
+ *= require application/forms_fixes.css.sass
  *= require semantic-ui
  */

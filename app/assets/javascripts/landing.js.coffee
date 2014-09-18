@@ -1,3 +1,2 @@
-#= require jquery
-#= require jquery_ujs
+#= require landing/jquery.js
 #= require_tree ./landing
