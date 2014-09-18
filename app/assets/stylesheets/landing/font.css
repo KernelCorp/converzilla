@@ -126,7 +126,7 @@
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
-        font-family: 'aller_lightregular';
+        font-family: 'pragmaticalight';
         src: url('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
     }
 }
