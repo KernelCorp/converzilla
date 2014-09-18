@@ -1,4 +1,6 @@
-script src="//vkontakte.ru/js/api/openapi.js" type="text/javascript"
-coffee:
-  $(document).ready ->
-    new Converzilla('5409b0236d617857d5000000', {exitForm: false, visitors: true})
+#vk_auth
+script type="text/javascript" src="//vk.com/js/api/openapi.js?115"
+
+javascript:
+  VK.init({apiId: 4546123});
+  VK.Widgets.Auth("vk_auth", {width: "200px", authUrl: '/dev/Auth'});
