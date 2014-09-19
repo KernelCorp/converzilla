@@ -56,17 +56,17 @@ header#navigation
         a.home-carousel-right data-slide="next" href="#home-carousel"
           i.fa.fa-angle-right
     .carousel-inner
-      .item.active style=("background-image: url(#{image_url('landing/home/bg1.jpg')})")
+      .item.active style=("background-image: url(#{image_url('landing/home/bg1')})")
         .carousel-caption.container
           h1.animated.fadeInUpBig Получи инструмент
           h2.animated.zoomIn увеличения продаж
           p.animated.fadeInDownBig Converzilla - инновационный сервис обработки данных посещений вашего сайта.<br>Увеличивай конверсию не прибегая к дополнительной рекламе.
-      .item style=("background-image: url(#{image_url('landing/home/bg2.jpg')})")
+      .item style=("background-image: url(#{image_url('landing/home/bg2')})")
         .carousel-caption.container
           h1.animated.fadeInUpBig Будь на шаг
           h2.animated.zoomIn впереди конкурентов
           p.animated.fadeInDownBig Установи Converzilla на свой сайт сегодня и забирай клиентов,<br>о которых конкуренты даже не подозревают
-      .item style=("background-image: url(#{image_url('landing/home/bg3.jpg')})")
+      .item style=("background-image: url(#{image_url('landing/home/bg3')})")
         .carousel-caption.container
           h1.animated.fadeInUpBig Не про$@# свой шанс
           h2.animated.zoomIn УВЕЛИЧИТЬ КОНВЕРСИЮ
@@ -167,7 +167,7 @@ header#navigation
     /ul.portfolio-items
     /  li.branding.video
     /    .portfolio-content
-    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p1.jpg"
+    /      img.img-responsive alt="" src="assets/images/landing/portfolio/p1"
     /        .overlay
     /          a.folio-detail data-gallery="prettyPhoto" href="assets/images/landing/portfolio/port-full1.jpg"
     /            i.fa.fa-camera
@@ -301,7 +301,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member1.jpg"
+                    = image_tag "assets/images/landing/about-us/member1.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -321,7 +321,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member2.jpg"
+                    = image_tag "/landing/about-us/member2.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -341,7 +341,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member3.jpg"
+                    = image_tag "/landing/about-us/member3.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -361,7 +361,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member4.jpg"
+                    = image_tag "/landing/about-us/member4.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -383,7 +383,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member2.jpg"
+                    = image_tag "/landing/about-us/member4.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -403,7 +403,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member1.jpg"
+                    = image_tag "/landing/about-us/member4.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -423,7 +423,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member4.jpg"
+                    = image_tag "/landing/about-us/member4.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -443,7 +443,7 @@ header#navigation
               .col-sm-3
                 .team-member
                   .member-image
-                    img.img-responsive alt=("Team member") src="assets/images/landing/about-us/member3.jpg"
+                    = image_tag "/landing/about-us/member4.jpg", alt: 'Team member', class: 'img-responsive'
                   .overlay
                     h4 Bruce Wayne
                     p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Praesent faucibus
@@ -483,7 +483,7 @@ header#navigation
         .single-blog.wow.fadeInUp data-wow-delay="300ms" data-wow-duration="700ms"
           .blog-image
             a href="single-blog.html"
-              img.img-responsive alt="" src="assets/images/landing/blog/post1.jpg" /
+              = image_tag "/landing/blog/post1.png", class: 'img-responsive'
             .post-date
               p
                 | 28
@@ -506,7 +506,7 @@ header#navigation
         .single-blog.wow.fadeInUp data-wow-delay="400ms" data-wow-duration="700ms"
           .blog-image
             a href="single-blog.html"
-              img.img-responsive alt="" src="assets/images/landing/blog/post2.jpg" /
+              = image_tag "/landing/blog/post2.png", class: 'img-responsive'
             .post-date
               p
                 | 28
@@ -529,7 +529,7 @@ header#navigation
         .single-blog.wow.fadeInUp data-wow-delay="500ms" data-wow-duration="700ms"
           .blog-image
             a href="single-blog.html"
-              img.img-responsive alt="" src="assets/images/landing/blog/post3.jpg" /
+              = image_tag "/landing/blog/post3.png", class: 'img-responsive'
             .post-date
               p
                 | 28
@@ -552,7 +552,7 @@ header#navigation
         .single-blog.wow.fadeInUp data-wow-delay="600ms" data-wow-duration="700ms"
           .blog-image
             a href="single-blog.html"
-              img.img-responsive alt="" src="assets/images/landing/blog/post4.jpg" /
+              = image_tag "/landing/blog/post4.png", class: 'img-responsive'
             .post-date
               p
                 | 28
@@ -607,30 +607,30 @@ header#navigation
           ul
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client1.png" /
+                = image_tag "/landing/client/client1.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client2.png" /
+                = image_tag "/landing/client/client2.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client3.png" /
+                = image_tag "/landing/client/client3.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client4.png" /
+                = image_tag "/landing/client/client4.png"
         .item
           ul
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client1.png" /
+                = image_tag "/landing/client/client1.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client2.png" /
+                = image_tag "/landing/client/client2.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client3.png" /
+                = image_tag "/landing/client/client3.png"
             li
               a.img-responsive href="#"
-                img alt="" src="assets/images/landing/client/client4.png" /
+                = image_tag "/landing/client/client4.png"
       a.client-left data-slide="prev" href="#clients-carousel"
         i.fa.fa-angle-left
       a.client-right data-slide="next" href="#clients-carousel"

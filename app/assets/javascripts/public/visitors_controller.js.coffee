@@ -1,6 +1,7 @@
 class @VisitorsController
 
   host: 'converzilla.kerweb.ru'
+  #host: 'localhost:3000'
 
   constructor: (clientId, vkController)->
     @vkController = vkController
