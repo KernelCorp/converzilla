@@ -2,11 +2,11 @@
 
 @font-face {
     font-family: 'allerregular';
-    src: font_path('aller_rg-webfont.eot');
-    src: font_path('aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
-         font_path('aller_rg-webfont.woff') format('woff'),
-         font_path('aller_rg-webfont.ttf') format('truetype'),
-         font_path('aller_rg-webfont.svg#allerregular') format('svg');
+    src: asset_url('aller_rg-webfont.eot');
+    src: asset_url('aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         asset_url('aller_rg-webfont.woff') format('woff'),
+         asset_url('aller_rg-webfont.ttf') format('truetype'),
+         asset_url('aller_rg-webfont.svg#allerregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,17 +14,17 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'allerregular';
-        src: font_path('aller_rg-webfont.svg#allerregular') format('svg');
+        src: asset_url('aller_rg-webfont.svg#allerregular') format('svg');
     }
 }
 
 @font-face {
     font-family: 'allerbold';
-    src: font_path('aller_bd-webfont.eot');
-    src: font_path('aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
-         font_path('aller_bd-webfont.woff') format('woff'),
-         font_path('aller_bd-webfont.ttf') format('truetype'),
-         font_path('aller_bd-webfont.svg#allerbold') format('svg');
+    src: asset_url('aller_bd-webfont.eot');
+    src: asset_url('aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         asset_url('aller_bd-webfont.woff') format('woff'),
+         asset_url('aller_bd-webfont.ttf') format('truetype'),
+         asset_url('aller_bd-webfont.svg#allerbold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -33,17 +33,17 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'allerbold';
-        src: font_path('aller_bd-webfont.svg#allerbold') format('svg');
+        src: asset_url('aller_bd-webfont.svg#allerbold') format('svg');
     }
 }
 
 @font-face {
     font-family: 'aller_lightregular';
-    src: font_path('aller_lt-webfont.eot');
-    src: font_path('aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
-         font_path('aller_lt-webfont.woff') format('woff'),
-         font_path('aller_lt-webfont.ttf') format('truetype'),
-         font_path('aller_lt-webfont.svg#aller_lightregular') format('svg');
+    src: asset_url('aller_lt-webfont.eot');
+    src: asset_url('aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         asset_url('aller_lt-webfont.woff') format('woff'),
+         asset_url('aller_lt-webfont.ttf') format('truetype'),
+         asset_url('aller_lt-webfont.svg#aller_lightregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -52,17 +52,17 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'aller_lightregular';
-        src: font_path('aller_lt-webfont.svg#aller_lightregular') format('svg');
+        src: asset_url('aller_lt-webfont.svg#aller_lightregular') format('svg');
     }
 }
 
 @font-face {
     font-family: 'aller_displayregular';
-    src: font_path('allerdisplay-webfont.eot');
-    src: font_path('allerdisplay-webfont.eot?#iefix') format('embedded-opentype'),
-         font_path('allerdisplay-webfont.woff') format('woff'),
-         font_path('allerdisplay-webfont.ttf') format('truetype'),
-         font_path('allerdisplay-webfont.svg#aller_displayregular') format('svg');
+    src: asset_url('allerdisplay-webfont.eot');
+    src: asset_url('allerdisplay-webfont.eot?#iefix') format('embedded-opentype'),
+         asset_url('allerdisplay-webfont.woff') format('woff'),
+         asset_url('allerdisplay-webfont.ttf') format('truetype'),
+         asset_url('allerdisplay-webfont.svg#aller_displayregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -71,7 +71,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'aller_displayregular';
-        src: font_path('allerdisplay-webfont.svg#aller_displayregular') format('svg');
+        src: asset_url('allerdisplay-webfont.svg#aller_displayregular') format('svg');
     }
 }
 
@@ -79,11 +79,11 @@
 
 @font-face {
     font-family: 'pragmaticaregular';
-    src: font_path('pragmaticac-webfont.eot');
-    src: font_path('pragmaticac-webfont.eot?#iefix') format('embedded-opentype'),
-    font_path('pragmaticac-webfont.woff') format('woff'),
-    font_path('pragmaticac-webfont.ttf') format('truetype'),
-    font_path('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
+    src: asset_url('pragmaticac-webfont.eot');
+    src: asset_url('pragmaticac-webfont.eot?#iefix') format('embedded-opentype'),
+    asset_url('pragmaticac-webfont.woff') format('woff'),
+    asset_url('pragmaticac-webfont.ttf') format('truetype'),
+    asset_url('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -91,17 +91,17 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'pragmaticaregular';
-        src: font_path('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
+        src: asset_url('pragmaticac-webfont.svg#pragmaticacregular') format('svg');
     }
 }
 
 @font-face {
     font-family: 'pragmaticabold';
-    src: font_path('pragmaticac-bold-webfont.eot');
-    src: font_path('pragmaticac-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    font_path('pragmaticac-bold-webfont.woff') format('woff'),
-    font_path('pragmaticac-bold-webfont.ttf') format('truetype'),
-    font_path('pragmaticac-bold-webfont.svg#pragmaticacbold') format('svg');
+    src: asset_url('pragmaticac-bold-webfont.eot');
+    src: asset_url('pragmaticac-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    asset_url('pragmaticac-bold-webfont.woff') format('woff'),
+    asset_url('pragmaticac-bold-webfont.ttf') format('truetype'),
+    asset_url('pragmaticac-bold-webfont.svg#pragmaticacbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -109,17 +109,17 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'pragmaticabold';
-        src: font_path('pragmaticac-bold-webfont.svg') format('svg');
+        src: asset_url('pragmaticac-bold-webfont.svg') format('svg');
     }
 }
 
 @font-face {
     font-family: 'pragmaticalight';
-    src: font_path('pragmaticalightc-webfont.eot');
-    src: font_path('pragmaticalightc-webfont.eot?#iefix') format('embedded-opentype'),
-    font_path('pragmaticalightc-webfont.woff') format('woff'),
-    font_path('pragmaticalightc-webfont.ttf') format('truetype'),
-    font_path('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
+    src: asset_url('pragmaticalightc-webfont.eot');
+    src: asset_url('pragmaticalightc-webfont.eot?#iefix') format('embedded-opentype'),
+    asset_url('pragmaticalightc-webfont.woff') format('woff'),
+    asset_url('pragmaticalightc-webfont.ttf') format('truetype'),
+    asset_url('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -127,6 +127,6 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'pragmaticalight';
-        src: font_path('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
+        src: asset_url('pragmaticalightc-webfont.svg#pragmaticalightcregular') format('svg');
     }
 }
