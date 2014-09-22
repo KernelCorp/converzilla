@@ -3,8 +3,7 @@ var cSpeed=9;
 	var cHeight=60;
 	var cTotalFrames=12;
 	var cFrameWidth=60;
-	var cImageSrc=<%= asset_path 'landing/sprites.gif'%>
-	
+	var cImageSrc='images/sprites.gif';
 	var cImageTimeout=false;
 	
 	function startAnimation(){
