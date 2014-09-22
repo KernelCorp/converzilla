@@ -23,6 +23,8 @@ gem 'slim-rails'
 gem 'devise'
 gem 'cancancan'
 
+gem 'font-awesome-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
