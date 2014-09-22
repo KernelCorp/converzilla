@@ -4,8 +4,7 @@ var cHeight=60;
 var cTotalFrames=12;
 var cFrameWidth=60;
 var cImageSrc='images/sprites.gif';
-var cImageTimeout=10;
-
+var cImageTimeout=30;
 function startAnimation(){
 
     document.getElementById('loaderImage').innerHTML='<canvas id="canvas" width="'+cWidth+'" height="'+cHeight+'"><p>Your browser does not support the canvas element.</p></canvas>';
