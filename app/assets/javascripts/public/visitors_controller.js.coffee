@@ -15,3 +15,7 @@ class @VisitorsController
     $(window).on 'mousemove', (e) ->
       $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
+    $('#wrap1').on 'click', () ->
+      setTimeout (->
+        $('#overlay').remove
+      ), 500
