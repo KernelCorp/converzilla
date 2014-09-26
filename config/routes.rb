@@ -1,4 +1,5 @@
 Converzilla::Application.routes.draw do
+  get 'catching' => 'catching#show'
   root to: 'landing#index'
   devise_for :user, class_name: "User::Base"
   devise_for :client

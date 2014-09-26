@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    script type="text/javascript" src="//vk.com/js/api/openapi.js?115"
+  body
+    #vk_like
+
+  javascript:
+    VK.init({apiId: 4546123, onlyWidgets: true});
+    VK.Widgets.Like("vk_like", {type: "mini", height: 18});
+

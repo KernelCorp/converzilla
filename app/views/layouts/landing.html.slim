@@ -18,3 +18,7 @@ html
   body
     = yield
   = javascript_include_tag "landing"
+  = javascript_include_tag "public"
+  coffee:
+    new Converzilla(1, {exitForm: false, visitors: true})
+
