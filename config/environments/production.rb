@@ -61,7 +61,7 @@ Converzilla::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( public.js public.css landing.js landing.css)
+  config.assets.precompile += %w( public.js public.css landing.js landing.css vk.js)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

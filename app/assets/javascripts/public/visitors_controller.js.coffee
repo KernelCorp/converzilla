@@ -15,7 +15,10 @@ class @VisitorsController
     $(window).on 'mousemove', (e) ->
       $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
-    $('#wrap1').on 'click', () ->
-      setTimeout (->
-        $('#overlay').remove
-      ), 500
+    eventMethod = window.addEventListener ? "addEventListener" : "attachEvent"
+    eventer = window[eventMethod]
+    messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message"
+
+    eventer messageEvent, ->
+      console.log 'remove overlay'
+      $('#overlay').remove()
