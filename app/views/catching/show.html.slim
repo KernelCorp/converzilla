@@ -11,7 +11,7 @@ html
     eventer = window[eventMethod]
     messageEvent = eventMethod == "attachEvent" ? "onmessage": "message"
 
-    eventer(messageEvent, (e) =>
+    eventer(messageEvent, (e) ->
       console.log('catching received message!:  ', e.data)
     , false);
 
