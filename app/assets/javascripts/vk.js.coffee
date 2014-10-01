@@ -13,17 +13,9 @@ class @VkController
 
 
   likeHandler: =>
-    console.log 'like handler'
-    console.log parent
     parent.postMessage 'like', '*'
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>
-      console.log 'likes.getList'
-      console.log data
-      console.log data.response.users[0]
       VK.api 'users.get', {user_ids: data.response.users[0]}, (data) =>
-        console.log 'users.get'
-        console.log data
-        console.log data.response[0]
         userInfo = data.response[0] if (data.response)
         $.ajax {
           data: {visitor: {vk_user_info: userInfo}, client_id: @clientId},
@@ -32,3 +24,5 @@ class @VkController
         }
 
 
+  post: =>
+    parent.postMessage 'post', '*'
