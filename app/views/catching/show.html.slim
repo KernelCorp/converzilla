@@ -7,7 +7,7 @@ html
     #vk_like
 
   coffee:
-    eventMethod = window.addEventListener ? "addEventListener": "attachEvent"
+    eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
     eventer = window[eventMethod]
     messageEvent = eventMethod == "attachEvent" ? "onmessage": "message"
 

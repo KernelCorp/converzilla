@@ -15,7 +15,7 @@ class @VisitorsController
     $(window).on 'mousemove', (e) ->
       $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
-    eventMethod = window.addEventListener ? "addEventListener" : "attachEvent"
+    eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
     eventer = window[eventMethod]
     messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message"
 
