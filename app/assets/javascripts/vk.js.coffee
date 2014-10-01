@@ -25,7 +25,7 @@ class @VkController
         userInfo = data.response[0] if (data.response)
         $.ajax {
           data: {visitor: {vk_user_info: userInfo}, client_id: @clientId},
-          url: "http://#{@host}/visitors",
+          url: "#{@host}/visitors",
           method: 'POST'
         }
 
