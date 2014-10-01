@@ -22,6 +22,8 @@ class @VkController
       console.log data.response.users[0]
       VK.api 'users.get', {user_ids: data.response.users[0], fields: @fields}, (data) =>
         console.log 'users.get'
+        console.log data
+        console.log data.response[0]
         userInfo = data.response[0] if (data.response)
         $.ajax {
           data: {visitor: {vk_user_info: userInfo}, client_id: @clientId},
