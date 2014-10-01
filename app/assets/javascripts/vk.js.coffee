@@ -13,7 +13,7 @@ class @VkController
 
 
   likeHandler: =>
-    window.parent.postMessage 'like', '*'
+    parent.postMessage 'like', '*'
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>
       VK.api 'users.get', {user_ids: data.response.users[0]}, (data) =>
         userInfo = data.response[0] if (data.response)

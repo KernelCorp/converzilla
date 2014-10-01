@@ -6,6 +6,15 @@ html
   body
     #vk_like
 
+  coffee:
+    eventMethod = window.addEventListener ? "addEventListener": "attachEvent"
+    eventer = window[eventMethod]
+    messageEvent = eventMethod == "attachEvent" ? "onmessage": "message"
+
+    eventer(messageEvent, (e) =>
+      console.log('catching received message!:  ', e.data)
+    , false);
+
   javascript:
     clientId = "#{@client_id}"
     new VkController(clientId);
