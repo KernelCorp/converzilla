@@ -6,8 +6,8 @@ class @VkController
   constructor: (clientId) ->
     @clientId = clientId
     VK.init {apiId: 4546123}
-    VK.Widgets.Like("vk_like", {type: "mini", height: 18});
-    VK.Observer.subscribe("widgets.like.liked", @likeHandler);
+    VK.Widgets.Like "vk_like", {type: "mini", height: 18}
+    VK.Observer.subscribe "widgets.like.liked", @likeHandler
 
 
   likeHandler: =>
