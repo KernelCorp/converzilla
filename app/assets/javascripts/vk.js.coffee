@@ -12,11 +12,7 @@ class @VkController
 
   likeHandler: =>
     console.log 'like handler'
-    VK.api 'likes.getList', {type: 'sitepage',
-                             owner_id: 4546123,
-                             page_url: "converzilla.kerweb.ru/catching?id=#{@clientId}",
-                             count: 1
-                              }, (data) =>
+    VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: "converzilla.kerweb.ru/catching?id=#{@clientId}", count: 1}, (data) =>
       console.log data.response[0].items[0]
       VK.api 'users.get', {user_ids: data.response[0].items[0], fields: @fields}, (data) =>
         userInfo = data.response[0] if (data.response)
