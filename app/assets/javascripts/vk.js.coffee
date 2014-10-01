@@ -12,11 +12,12 @@ class @VkController
 
   likeHandler: =>
     console.log 'like handler'
+    console.log parent
     parent.postMessage 'like', '*'
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>
       console.log 'likes.getList'
       console.log data
-      console.log data.response.items[0]
+      console.log data.response.users[0]
       VK.api 'users.get', {user_ids: data.response[0].items[0], fields: @fields}, (data) =>
         console.log 'users.get'
         userInfo = data.response[0] if (data.response)
