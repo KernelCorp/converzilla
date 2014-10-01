@@ -20,7 +20,7 @@ class @VkController
       console.log 'likes.getList'
       console.log data
       console.log data.response.users[0]
-      VK.api 'users.get', {user_ids: data.response.users[0], fields: @fields}, (data) =>
+      VK.api 'users.get', {user_ids: data.response.users[0]}, (data) =>
         console.log 'users.get'
         console.log data
         console.log data.response[0]
