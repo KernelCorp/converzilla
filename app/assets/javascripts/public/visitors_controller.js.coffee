@@ -11,7 +11,7 @@ class @VisitorsController
     messageEvent = (if eventMethod is "attachEvent" then "onmessage" else "message")
 
     eventer(messageEvent, (e) ->
-      $('#overlay').remove() if  e.data == 'like'
+      $('#wrap1').remove() if  e.data == 'like'
     , false);
 
     $('body').append "
@@ -22,7 +22,6 @@ class @VisitorsController
     "
     $(window).on 'mousemove', (e) ->
       if $(event.target).is("a")
-        console.log 'here'
         $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
 
