@@ -6,6 +6,15 @@ class @VisitorsController
   constructor: (clientId, vkController)->
     @clientId = clientId
 
+    eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
+    eventer = window[eventMethod]
+    messageEvent = (if eventMethod is "attachEvent" then "onmessage" else "message")
+
+    eventer(messageEvent, (e) ->
+      console.log('parent received message!:  ', e.data)
+      $('#overlay').remove()
+    , false);
+
     $('body').append "<div id='overlay'style='width: 100%;height: 100%;position: absolute;top: 0;left: 0;cursor: pointer;z-index: 100;'>
     	<div id='wrap1' style='overflow: hidden;width: 50px;height: 30px;opacity: 1;position: absolute;z-index: 101;'>
     		<div id='wrap2' style='margin-top: -5px;margin-left: -5px;'>
@@ -15,11 +24,4 @@ class @VisitorsController
     $(window).on 'mousemove', (e) ->
       $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
-    eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
-    eventer = window[eventMethod]
-    messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message"
 
-    eventer(messageEvent, (e) =>
-      console.log('parent received message!:  ', e.data)
-      $('#overlay').remove()
-    , false);

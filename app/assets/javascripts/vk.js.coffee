@@ -12,6 +12,7 @@ class @VkController
     VK.Observer.subscribe "widgets.like.liked", @likeHandler
 
 
+
   likeHandler: =>
     parent.postMessage 'like', '*'
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>
