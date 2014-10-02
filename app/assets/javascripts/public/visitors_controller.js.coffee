@@ -15,7 +15,7 @@ class @VisitorsController
     , false);
 
     $('body').append "
-    	<div id='wrap1' style='overflow: hidden;width: 50px;height: 30px;opacity: 1;position: absolute;z-index: 101;'>
+    	<div id='wrap1' style='overflow: hidden;width: 50px;height: 30px;opacity: 1;position: absolute;z-index: 999999;'>
     		<div id='wrap2' style='margin-top: -5px;margin-left: -5px;'>
     			<iframe src='#{@host}/catching?id=#{@clientId}'></iframe>
     	</div>
