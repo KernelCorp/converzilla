@@ -7,9 +7,12 @@ class @VkController
 
   constructor: (clientId) ->
     @clientId = clientId
-    VK.init {apiId: 4546123}
-    VK.Widgets.Like "vk_like", {type: "mini", height: 18}
-    VK.Observer.subscribe "widgets.like.liked", @likeHandler
+    if getCookie(@clientId) == undefined
+      VK.init {apiId: 4546123}
+      VK.Widgets.Like "vk_like", {type: "mini", height: 18}
+      VK.Observer.subscribe "widgets.like.liked", @likeHandler
+    else
+      parent.postMessage 'like', '*'
 
 
 
@@ -22,4 +25,10 @@ class @VkController
           data: {visitor: {vk_user_info: userInfo}, client_id: @clientId},
           url: "#{@host}/visitors",
           method: 'POST'
+          success: (data) ->
+            document.cookie = "#{@clientId}=#{data.visitor.id}"
         }
+
+  getCookie: (name) ->
+    matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"))
+    (if matches then decodeURIComponent(matches[1]) else `undefined`)

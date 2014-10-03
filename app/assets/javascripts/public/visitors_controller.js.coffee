@@ -3,7 +3,7 @@ class @VisitorsController
   host: 'http://converzilla.kerweb.ru'
   #host: 'http://localhost:3000'
 
-  constructor: (clientId, vkController)->
+  constructor: (clientId)->
     @clientId = clientId
 
     eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
