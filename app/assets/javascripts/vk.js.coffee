@@ -25,7 +25,7 @@ class @VkController
           url: "#{@host}/visitors",
           method: 'POST'
           success: (data) ->
-            document.cookie = "#{@clientId}=#{data.visitor.id}"
+            document.cookie = "#{@clientId}=#{data._id}"
             parent.postMessage 'like', '*'
         }
 
