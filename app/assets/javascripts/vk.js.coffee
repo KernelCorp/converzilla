@@ -10,6 +10,7 @@ class @VkController
     if @getCookie(@clientId) == undefined
       VK.init {apiId: 4546123}
       VK.Auth.getLoginStatus (response)=>
+        console.log response.status
         if response.status =='connected'
           VK.Widgets.Like "vk_like", {type: "mini", height: 18}
           VK.Observer.subscribe "widgets.like.liked", @likeHandler
