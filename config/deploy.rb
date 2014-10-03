@@ -15,7 +15,7 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 set :normalize_asset_timestamps, false
 set :keep_releases, 5
 
-set :rvm_ruby_string, 'ruby-2.0.0-p247'
+set :rvm_ruby_string, 'ruby-2.1.1'
 
 
 set :scm, :git

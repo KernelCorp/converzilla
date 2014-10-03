@@ -2,7 +2,7 @@ class @Converzilla
 
   clientId: null
 
-  constructor: (clientId, options = {exitForm: true, visitors: false}) ->
+  constructor: (clientId, options = {exitForm: true, visitors: true}) ->
     @clientId = clientId
     if options['exitForm']
       @exitController = new ExitController()
