@@ -9,8 +9,12 @@ class @VkController
     @clientId = clientId
     if @getCookie(@clientId) == undefined
       VK.init {apiId: 4546123}
-      VK.Widgets.Like "vk_like", {type: "mini", height: 18}
-      VK.Observer.subscribe "widgets.like.liked", @likeHandler
+      VK.Auth.getLoginStatus (response)=>
+        if response.status =='connected'
+          VK.Widgets.Like "vk_like", {type: "mini", height: 18}
+          VK.Observer.subscribe "widgets.like.liked", @likeHandler
+        else
+          parent.postMessage 'like', '*'
     else
       parent.postMessage 'like', '*'
 
