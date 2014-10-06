@@ -10,15 +10,10 @@ class @VisitorsController
     eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
     eventer = window[eventMethod]
     messageEvent = (if eventMethod is "attachEvent" then "onmessage" else "message")
-    clickEvent   = (if eventMethod is "attachEvent" then "onblur" else "blur")
 
     eventer(messageEvent, (e) =>
       if @element
-        @element.trigger('click')
-    , false);
-
-    eventer(clickEvent, (e) ->
-      $('#wrap1').remove() if  e.data == 'like'
+        @element.onclick()
     , false);
 
     $('body').append "
