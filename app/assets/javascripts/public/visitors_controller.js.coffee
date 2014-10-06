@@ -14,7 +14,7 @@ class @VisitorsController
 
     eventer(messageEvent, (e) =>
       if @element
-        @element.onclick()
+        @element.trigger('click')
     , false);
 
     eventer(clickEvent, (e) ->
