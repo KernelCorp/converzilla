@@ -17,13 +17,14 @@ class @VkController
         else
           parent.postMessage 'like', '*'
     else
-      @new_visit(visitor_id)
       parent.postMessage 'like', '*'
+      @new_visit(visitor_id)
+
 
   new_visit: (visitor) =>
     $.ajax {
-      data: {client_id: @clientId},
-      url: "#{@host}/visitors/#{visitor}/visits",
+      data: {visitor_id: visitor, client_id: @clientId},
+      url: "#{@host}/visits",
       method: 'POST'
     }
 
