@@ -5,6 +5,7 @@ class JsScriptsController < ApplicationController
   def show
     if current_user.is_a? Client
       @script = current_user.script
+      render json: {js_script: {data: raw(@script)}}
     else
       head status: :unprocessable_entity
     end

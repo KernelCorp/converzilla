@@ -18,6 +18,7 @@ class InquiresController < ApplicationController
 
 
   def show
+    respond_with @inquire
   end
 
   def create
@@ -27,8 +28,8 @@ class InquiresController < ApplicationController
     @inquire.set_timestamp
     if @inquire.save
       flash[:notice] = 'Inquire was successfully created.'
-      WebsocketRails[@client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
-      respond_with @inquire, status: :created, location: @inquire
+      WebsocketRails[@client.id.to_s].trigger :new_inquire, @inquire.to_json
+      respond_with @inquire, status: :created
     else
       respond_with @inquire, status: :unprocessable_entity
     end
@@ -38,8 +39,8 @@ class InquiresController < ApplicationController
   def update
     if @inquire.update(inquire_params)
       flash[:notice] = 'Inquire was successfully updated.'
-      WebsocketRails[@inquire.client.id.to_s].trigger :new_inquire, render_to_string('inquires/show', formats: [:json])
-      respond_with @inquire, status: :updated, location: @inquire
+      WebsocketRails[@inquire.client.id.to_s].trigger :new_inquire, @inquire.to_json
+      respond_with @inquire, status: :updated
     else
       respond_with @inquire.errors, status: :unprocessable_entity
     end

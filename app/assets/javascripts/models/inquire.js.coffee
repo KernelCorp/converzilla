@@ -15,7 +15,7 @@ Converzilla.Inquire = DS.Model.extend
       when 'close' then 'positive'
       when 'in_progress' then 'warning'
       else ''
-  ).property('status')
+  ).property('is_active')
 
   isOpen: ( ->
     @get('status') == 'new'

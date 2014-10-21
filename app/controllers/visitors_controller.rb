@@ -13,6 +13,7 @@ class VisitorsController < ApplicationController
 
 
   def show
+    respond_with @visitor
   end
 
   def create

@@ -28,6 +28,6 @@ module Converzilla
                                                       'Access-Control-Allow-Origin' => '*',
                                                       'Access-Control-Request-Method' => '*'
                                                   })
-
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
