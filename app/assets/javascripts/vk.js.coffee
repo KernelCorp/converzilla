@@ -7,7 +7,8 @@ class @VkController
 
   constructor: (clientId) ->
     @clientId = clientId
-    if @getCookie(@clientId) == undefined
+    visitor_id = @getCookie(@clientId)
+    if visitor_id == undefined
       VK.init {apiId: 4546123}
       VK.Auth.getLoginStatus (response)=>
         unless response.status == 'unknown'
@@ -16,9 +17,15 @@ class @VkController
         else
           parent.postMessage 'like', '*'
     else
+      @new_visit(visitor_id)
       parent.postMessage 'like', '*'
 
-
+  new_visit: (visitor) =>
+    $.ajax {
+      data: {client_id: @clientId},
+      url: "#{@host}/visitors/#{visitor}/visits",
+      method: 'POST'
+    }
 
   likeHandler: =>
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>

@@ -6,3 +6,4 @@ Converzilla.Visitor = DS.Model.extend
   vk_sex:        DS.attr 'string'
   vk_uid:        DS.attr 'string'
   vk_url:        DS.attr 'string'
+  visits_count:  DS.attr 'number'

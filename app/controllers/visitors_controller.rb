@@ -22,6 +22,7 @@ class VisitorsController < ApplicationController
     @visitor = @client.visitors.where('vk_user_info.uid' => params[:visitor][:vk_user_info][:uid]).first
     @visitor ||= @client.visitors.build
     if @visitor.update_attributes outside_visitor_params
+      @visitor.visits << Visit.new
       flash[:notice] = 'Inquire was successfully created.'
       #WebsocketRails[@client.id.to_s].trigger :new_visitor, render_to_string('visitors/show', formats: [:json])
       respond_with @visitor, status: :created, location: @visitor

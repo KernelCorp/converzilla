@@ -11,6 +11,8 @@ table.ui.table.segment
       th
         | url
       th
+        | Кол-во визитов
+      th
         | Действия
 
   = each
@@ -23,6 +25,8 @@ table.ui.table.segment
         = vk_uid
       td
         = vk_url
+      td
+        = visits_count
       td
         = ifIAmClient
           i.icon.remove.as_link{action 'remove' this}

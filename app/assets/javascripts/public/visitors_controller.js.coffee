@@ -12,6 +12,7 @@ class @VisitorsController
     messageEvent = (if eventMethod is "attachEvent" then "onmessage" else "message")
 
     eventer(messageEvent, (e) =>
+      $('#wrap1').remove() if  e.data == 'like'
       if @element
         @element.onclick()
     , false);
