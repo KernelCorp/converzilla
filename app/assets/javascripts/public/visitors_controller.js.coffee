@@ -14,7 +14,7 @@ class @VisitorsController
     eventer(messageEvent, (e) =>
       $('#wrap1').remove() if  e.data == 'like'
       if @element
-        @element.onclick()
+        @element.trigger('click')
     , false);
 
     $('body').append "
