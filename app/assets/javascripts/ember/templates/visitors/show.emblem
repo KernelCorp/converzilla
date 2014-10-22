@@ -1,0 +1,35 @@
+.ui.vertical.segment style='margin-bottom:10px'
+  h3.ui.left.floated.header
+    | Посетитель &nbsp
+    = id
+.ui.segment
+
+  .ui.ribbon.purple.label
+    | Имя
+  p
+    = vk_first_name
+
+
+  .ui.ribbon.purple.label
+    | Фамилия
+  p
+    = vk_last_name
+
+  .ui.ribbon.purple.label
+    | Ссылка на профиль Вконтакте
+  p
+    a target="_blank" href={vk_url}
+      = vk_url
+
+  .ui.ribbon.purple.label
+    | Визиты
+  table.ui.table.segment
+    thead
+      tr
+        th
+          | Дата
+    tbody
+      = each visits
+        tr
+          td
+            = formattedCreatedAt

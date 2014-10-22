@@ -109,7 +109,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.5.0)
+    ember-source (1.7.0)
       handlebars-source (~> 1.0)
     emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
@@ -148,6 +148,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (4.7.5)
+    momentjs-rails (2.8.3)
+      railties (>= 3.1)
     mongoid (4.0.0)
       activemodel (~> 4.0)
       moped (~> 2.0.0)
@@ -311,11 +313,12 @@ DEPENDENCIES
   devise
   email_spec
   ember-rails
-  ember-source (~> 1.5.0)
+  ember-source
   emblem-rails
   factory_girl_rails
   font-awesome-rails
   jquery-rails
+  momentjs-rails
   mongoid (~> 4.0.0)
   net-ssh (~> 2.7.0)
   nginx-config

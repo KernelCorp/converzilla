@@ -14,8 +14,9 @@ gem 'non-stupid-digest-assets'
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
 gem 'ember-rails'
-gem 'ember-source', '~>1.5.0'
+gem 'ember-source'
 gem 'emblem-rails'
+gem 'momentjs-rails'
 
 # Handlers
 gem 'slim-rails'

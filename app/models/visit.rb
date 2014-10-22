@@ -3,4 +3,6 @@ class Visit
   include Mongoid::Timestamps::Created
 
   embedded_in :visitor
+
+  default_scope ->{ desc :created_at }
 end

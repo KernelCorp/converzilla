@@ -7,3 +7,4 @@ Converzilla.Visitor = DS.Model.extend
   vk_uid:        DS.attr 'string'
   vk_url:        DS.attr 'string'
   visits_count:  DS.attr 'number'
+  visits:        DS.hasMany 'visits', {embedded: 'always'}
