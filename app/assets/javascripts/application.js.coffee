@@ -4,7 +4,7 @@
 #= require ember
 #= require ember-data
 #= require_self
-#= require converzilla
+#= require ember/converzilla.js.coffee
 #= require websocket_rails/main
 
 
