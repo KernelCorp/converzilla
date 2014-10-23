@@ -1,6 +1,15 @@
 #ember-app
 script type='text/x-handlebars'
-  | {{ outlet }}
+  .ui.grid
+    .four.wide.column
+      .ui.vertical.purple.menu
+        | {{partial 'navigation'}}
+
+
+    .twelve.wide.column
+      .ui.purple.segment
+        | {{ outlet }}
+
 
 
 javascript:

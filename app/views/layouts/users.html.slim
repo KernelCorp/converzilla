@@ -8,25 +8,5 @@ html
   body
     = render 'layouts/header'
 
-    .container
-      .ui.grid
-        .five.wide.column
-          .ui.vertical.menu
-            - if can? :manage, Operator
-              a.item href='#/operators'
-                | Операторы
-                i.phone.icon
-
-            a.item href='#/inquires'
-              | Заявки
-              i.briefcase.icon
-            a.item href='#/visitors'
-              | Посетители
-              i.users.icon
-            - if can? :manage, :js_script
-              a.item href='#/js_script'
-                | Код отлова
-                i.code.icon
-
-        .eleven.wide.column
-          = yield
+    .container.main
+      = yield

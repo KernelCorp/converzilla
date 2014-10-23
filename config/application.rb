@@ -28,6 +28,8 @@ module Converzilla
                                                       'Access-Control-Allow-Origin' => '*',
                                                       'Access-Control-Request-Method' => '*'
                                                   })
-
+    config.autoload_paths << Rails.root.join('lib')
+    config.ember.ember_path = "#{Rails.root}/app/assets/javascripts/ember"
+    config.handlebars.templates_root = "ember/templates"
   end
 end

@@ -14,8 +14,9 @@ gem 'non-stupid-digest-assets'
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
 gem 'ember-rails'
-gem 'ember-source', '~>1.5.0'
+gem 'ember-source'
 gem 'emblem-rails'
+gem 'momentjs-rails'
 
 # Handlers
 gem 'slim-rails'
@@ -44,8 +45,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'active_model_serializers'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

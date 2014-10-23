@@ -7,9 +7,9 @@ table.ui.table.segment
       th
         | Фамилия
       th
-        | id
-      th
         | url
+      th
+        | Кол-во визитов
       th
         | Действия
 
@@ -20,9 +20,12 @@ table.ui.table.segment
       td
         =  vk_last_name
       td
-        = vk_uid
+        a target="_blank" href={vk_url}
+          = vk_url
       td
-        = vk_url
+        = visits_count
       td
+        link-to 'visitors.show' id class='wrapper' title='Посмотреть'
+          i.unhide.icon
         = ifIAmClient
           i.icon.remove.as_link{action 'remove' this}

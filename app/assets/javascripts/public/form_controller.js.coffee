@@ -4,9 +4,8 @@ class @FormController
   clientId: null
   host = 'converzilla.kerweb.ru'
 
-  constructor: (vkController, exitController, clientId) ->
+  constructor: (exitController, clientId) ->
     @clientId       = clientId
-    @vkController   = vkController
     @exitController = exitController
     @buildForm()
 
@@ -28,7 +27,6 @@ class @FormController
     inquireData = {
       phone: @form.find('input[name=phone]').val(),
       email: @form.find('input[name=phone]').val()
-      vk_user_info: @vkController.userInfo
     }
 
     $.ajax {

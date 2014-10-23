@@ -14,4 +14,5 @@ Converzilla.Router.map ()->
     @route 'show', {path: ':guid'}
 
   @resource 'visitors', ->
+    @route 'show', path: '/:id'
     @route 'update'

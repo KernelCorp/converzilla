@@ -7,14 +7,28 @@ class @VkController
 
   constructor: (clientId) ->
     @clientId = clientId
-    VK.init {apiId: 4546123}
-    VK.Widgets.Like "vk_like", {type: "mini", height: 18}
-    VK.Observer.subscribe "widgets.like.liked", @likeHandler
+    visitor_id = @getCookie(@clientId)
+    if visitor_id == undefined
+      VK.init {apiId: 4546123}
+      VK.Auth.getLoginStatus (response)=>
+        unless response.status == 'unknown'
+          VK.Widgets.Like "vk_like", {type: "mini", height: 18}
+          VK.Observer.subscribe "widgets.like.liked", @likeHandler
+        else
+          parent.postMessage 'like', '*'
+    else
+      parent.postMessage 'like', '*'
+      @new_visit(visitor_id)
 
 
+  new_visit: (visitor) =>
+    $.ajax {
+      data: {visitor_id: visitor, client_id: @clientId},
+      url: "#{@host}/visits",
+      method: 'POST'
+    }
 
   likeHandler: =>
-    parent.postMessage 'like', '*'
     VK.api 'likes.getList', {type: 'sitepage', owner_id: 4546123, page_url: location.href, count: 1}, (data) =>
       VK.api 'users.get', {user_ids: data.response.users[0]}, (data) =>
         userInfo = data.response[0] if (data.response)
@@ -22,4 +36,13 @@ class @VkController
           data: {visitor: {vk_user_info: userInfo}, client_id: @clientId},
           url: "#{@host}/visitors",
           method: 'POST'
+          success: (data) =>
+            document.cookie = "#{@clientId}=#{data.visitor.id}"
+            parent.postMessage 'like', '*'
         }
+
+  getCookie: (name) ->
+    matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"))
+    (if matches then decodeURIComponent(matches[1]) else `undefined`)
+
+

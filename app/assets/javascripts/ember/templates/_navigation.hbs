@@ -1,0 +1,14 @@
+{{#ifIAmClient }}
+    {{#linkTo "operators" tagName="a" class="item" }}
+        <span {{bindAttr href="view.href"}}>Операторы</span>
+        <i class="phone icon"></i>
+    {{/linkTo}}
+{{/ifIAmClient}}
+{{#linkTo "inquires" tagName="a" class="item" }}
+    <span {{bindAttr href="view.href"}}>Заявки</span>
+    <i class="briefcase icon"></i>
+{{/linkTo}}
+{{#linkTo "visitors" tagName="a" class="item" }}
+    <span {{bindAttr href="view.href"}}>Посетители</span>
+    <i class="users icon"></i>
+{{/linkTo}}

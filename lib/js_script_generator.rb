@@ -3,7 +3,6 @@ module JsScriptGenerator
     str =
 %Q[<link href="//#{Converzilla::Application.config.host}/assets/public.css?body=1" media="all" rel="stylesheet">
 <script src="//#{Converzilla::Application.config.host}/assets/public.js" type="text/javascript"></script>
-<script src="//vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
 <script type="text/javascript>
 (function() {
   $(document).ready(function() {
