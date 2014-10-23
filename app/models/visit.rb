@@ -9,8 +9,11 @@ class Visit
 
   embedded_in :visitor
 
-  geocoded_by :ip_address, coordinates: :coordinates, address: :location
+  geocoded_by :ip_address
+  reverse_geocoded_by :coordinates, address: :location
 
   default_scope ->{ desc :created_at }
+
   after_validation :geocode, if: ->(obj){ obj.ip_address.present? }
+  after_validation :reverse_geocode, lookup: :yandex
 end
