@@ -11,6 +11,8 @@ gem 'websocket-rails', platforms: :ruby
 
 gem 'non-stupid-digest-assets'
 
+gem 'geocoder'
+
 #Frontend frameworks
 gem 'semantic-ui-sass', '~> 0.16.1.0'
 gem 'ember-rails'
