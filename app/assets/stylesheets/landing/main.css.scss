@@ -339,7 +339,7 @@ a.navbar-brand {
 	background-repeat: no-repeat;
 	background-size:cover;
 	width:100%;
-	height: 990px;
+	height: 640px;
 }
 
 .carousel-caption {
@@ -372,7 +372,7 @@ a.navbar-brand {
 }
 
 .brand-promotion {
-	bottom:92px;
+	bottom:10px;
 	left: 0;
 	position: absolute;
 	right: 15px;
@@ -382,13 +382,14 @@ a.navbar-brand {
 
 .brand-content {
 	background-color:rgba(217,35,45,0.85);
-	padding: 30px 32px;
+	padding: 10px 10px;
 	font-size: 14px;
 	margin-right: -25px;
 }
 
 .brand-content h2 {
 	text-transform: capitalize;
+    font-size: 20px;
 }
 
 .brand-content:hover {
@@ -863,6 +864,15 @@ a.navbar-brand {
 	margin-bottom: 20px;
 }
 
+.entry-content p {
+  text-align: justify;
+  margin-bottom: 0px;
+}
+
+.entry-content .entry-meta {
+  text-align: left;
+}
+
 .entry-meta {
 	margin-bottom:20px;
 }
@@ -880,7 +890,7 @@ a.navbar-brand {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: 300;
-	margin-top: 18px;
+	margin-top: 10px;
 	padding: 10px 20px;
 }
 
@@ -1044,6 +1054,10 @@ h3.timer {
 	overflow: hidden;
 }
 
+.pricing-table .row .col-sm-3 {
+  width: 33%
+}
+
 .single-table {
 	background-color: #fafafa;
 }
@@ -1067,19 +1081,26 @@ h3.timer {
 	font-weight: 700;
 }
 
-.price span.dollar-icon {
+.price span.money-icon {
 	font-size: 16px;
 	font-weight: 400;
 	position: relative;
-	top: -5px;
+	top: 3px;
+    margin-right: 10px;
 }
 
 .single-table ul {
 	padding: 5px 23px;
+    height: 275px;
 }
 
 .single-table ul li {
 	margin-top: 15px;
+}
+
+.single-table ul li .new {
+  color: red;
+  font-weight: 800;
 }
 
 .btn-signup {
@@ -1096,24 +1117,64 @@ h3.timer {
 	padding: 10px 0;
 }
 
-.single-table.featured-table {	
-	background-color: #f2f2f2;
+.single-table.light-table {
+  background-color: #f2f2f2;
 }
 
-.single-table.featured-table h2  { 
-	background-color: #db1820;
-	color: #fff;
+.single-table.light-table h2  {
+  background-color: rgba(219, 24, 32, 0.6);
+  color: #fff;
 }
 
-.single-table.featured-table .price {
-	background-color: #c7161c;
-	color: #fff;
+.single-table.light-table .price {
+  background-color: rgba(199, 22, 28, 0.6);
+  color: #fff;
 }
 
-.single-table.featured-table .btn-signup, 
+.single-table.light-table .btn-signup,
 .single-table:hover .btn-signup:hover{
-	background-color: #db2429;
-	color: #fff;
+  background-color: rgba(219, 24, 32, 0.6);
+  color: #fff;
+}
+
+.single-table.standart-table {
+  background-color: #f2f2f2;
+}
+
+.single-table.standart-table h2  {
+  background-color: rgba(219, 24, 32, 0.8);
+  color: #fff;
+}
+
+.single-table.standart-table .price {
+  background-color: rgba(199, 22, 28, 0.8);
+  color: #fff;
+}
+
+.single-table.standart-table .btn-signup,
+.single-table:hover .btn-signup:hover{
+  background-color: rgba(219, 24, 32, 0.8);
+  color: #fff;
+}
+
+.single-table.super-table {
+  background-color: #f2f2f2;
+}
+
+.single-table.super-table h2  {
+  background-color: #db1820;
+  color: #fff;
+}
+
+.single-table.super-table .price {
+  background-color: #c7161c;
+  color: #fff;
+}
+
+.single-table.super-table .btn-signup,
+.single-table:hover .btn-signup:hover{
+  background-color: #db2429;
+  color: #fff;
 }
 
 /*========================
