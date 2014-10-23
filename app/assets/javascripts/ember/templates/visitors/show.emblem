@@ -28,8 +28,16 @@
       tr
         th
           | Дата
+        th
+          | IP
+        th
+          | Адресс
     tbody
       = each visits
         tr
           td
             = formattedCreatedAt
+          td
+            = ip_address
+          td
+            = location
